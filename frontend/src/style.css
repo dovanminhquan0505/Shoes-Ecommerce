@@ -27,4 +27,30 @@ header{
     grid-area: header;
     background-color: #203040;
     color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+header a{
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header a:hover{
+    color: #f1c40f;
+}
+
+.brand a{
+    font-size: 3rem;
+}
+
+footer{
+    background-color: #203040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
 }
