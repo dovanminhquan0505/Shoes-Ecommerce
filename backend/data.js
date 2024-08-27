@@ -1,4 +1,4 @@
-module.exports = { //when using the common a style of importing and exporting content in JS files
+export default { //when using the common a style of importing and exporting content in JS files
     products: [ // Create properties of products
         {
             _id: '1',
