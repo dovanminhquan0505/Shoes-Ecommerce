@@ -1,4 +1,3 @@
-import data from '../assets/data.js'
 const homeScreen = {
     //Code to get data from frontend to backend
     render: async () => {
