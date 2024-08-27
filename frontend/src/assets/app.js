@@ -8,7 +8,7 @@ const routes = { //define the action when we click into each products page
     '/product/:id': ProductScreen,
 }
 
-const router = () => {
+const router = async () => {
     const request = parseRequestUrl();
     const parseUrl = //define the url
         (request.resource ? `/${request.resource}` : '/') +
@@ -16,7 +16,7 @@ const router = () => {
         (request.verb ? `/${request.verb}` : '');
     const screen = routes[parseUrl]? routes[parseUrl]: Error404Screen;
     const main = document.getElementById('main-container');
-    main.innerHTML = screen.render(); //render the products to views
+    main.innerHTML = await screen.render(); //render the products to views
 };
 
 //add event listener to the window when the page load and when the hash change
