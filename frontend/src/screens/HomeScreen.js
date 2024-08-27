@@ -23,8 +23,10 @@ const homeScreen = {
                             </div>
                         </div>
                     </li>    
-                `)}
+                `).join('\n')}
             </ul>
         `
     }
 }
+
+export default homeScreen;

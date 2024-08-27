@@ -5,7 +5,7 @@ export default {
             name: 'Air Force 1 Low 07 LV8 Panda Shoes',
             category: 'Shoes',
             image: '/images/product-1.jpg',
-            price: 40,
+            price: 39,
             brand: 'Nike',
             rating: 4.5,
             numReviews: 10,
