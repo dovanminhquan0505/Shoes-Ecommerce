@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const homeScreen = {
     //Code to get data from frontend to backend
     render: async () => {
