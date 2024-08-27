@@ -3,19 +3,18 @@ import homeScreen from "../screens/HomeScreen.js";
 import ProductScreen from "../screens/ProductScreen.js";
 import { parseRequestUrl } from "./utils.js";
 
-const routes = {
+const routes = { //define the action when we click into each products page
     '/': homeScreen,
     '/product/:id': ProductScreen,
 }
 
 const router = () => {
     const request = parseRequestUrl();
-    const parseUrl = 
+    const parseUrl = //define the url
         (request.resource ? `/${request.resource}` : '/') +
         (request.id? '/:id': '') +
         (request.verb ? `/${request.verb}` : '');
     const screen = routes[parseUrl]? routes[parseUrl]: Error404Screen;
-
     const main = document.getElementById('main-container');
     main.innerHTML = screen.render();
 };
