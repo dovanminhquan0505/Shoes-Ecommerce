@@ -1,6 +1,8 @@
 import data from '../assets/data.js'
 const homeScreen = {
+    //Code to get data from frontend to backend
     render: async () => {
+        // Code to fetch data from backend using fetch API
         const response = await fetch("http://localhost:5000/api/products", {
             headers: {
                 'Content-Type': 'application/json',
