@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Rating from '../components/Rating';
 
 const homeScreen = {
     //Code to get data from frontend to backend
@@ -28,6 +29,12 @@ const homeScreen = {
                                 <a href="/#/product/${product._id}">
                                     ${product.name}
                                 </a>
+                            </div>
+                            <div class="product-rating">
+                                ${Rating.render({
+                                    value: product.rating,
+                                    text: `${product.numReviews} reviews`,
+                                })}
                             </div>
                             <div class="product-brand">
                                 ${product.brand}

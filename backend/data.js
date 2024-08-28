@@ -8,7 +8,7 @@ export default { //when using the common a style of importing and exporting cont
             price: 39,
             brand: 'Nike',
             rating: 4.5,
-            numReviews: 10,
+            numReviews: 216,
             countInStock: 6,
         },
         {
@@ -41,7 +41,7 @@ export default { //when using the common a style of importing and exporting cont
             price: 61.6,
             brand: 'Converse',
             rating: 4.2,
-            numReviews: 40,
+            numReviews: 89,
             countInStock: 6,
         },
         {
