@@ -21,6 +21,19 @@ a:hover{
     color: #c27a2c;
 }
 
+button{
+    font: 1.6rem helvetica, Arial;
+    padding: 1rem;
+    border: 0.1rem #808080 solid;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+button:hover{
+    border: 0.1rem #404040 solid;
+
+}
+
 .grid-container{
     display: grid;
     grid-template-areas: 
