@@ -50,7 +50,7 @@ const ProductScreen = {
                                     ${product.countInStock > 0 ? `<span class="success">In Stock</span>` : `<span class="fail">Out of Stock</span>`}
                             </li>
                             <li>
-                                <button id="add-button" class="primary">Add to Cart</button>
+                                <button id="add-button" class="fw primary">Add to Cart</button>
                             </li>
                         </ul>
                     </div>

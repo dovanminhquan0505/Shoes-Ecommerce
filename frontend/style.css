@@ -74,10 +74,15 @@
     width: 100%;
 }
 
-.details-info,
+.details-info{
+    flex: 1 1 40rem;
+    padding-left: 2rem;
+}
+
 .details-action{
     flex: 1 1 30rem;
     padding-left: 2rem;
+    margin-right: 1.5rem;
 }
 
 .details-info ul,
