@@ -1,12 +1,13 @@
 import axios from 'axios';
 import Rating from '../components/Rating';
+import { apiUrl } from '../config';
 
 const homeScreen = {
     //Code to get data from frontend to backend
     render: async () => {
         // Code to fetch data from backend using fetch API
         const response = await axios({ //change fetch to axios when installing npm axios package
-            url: "http://localhost:5000/api/products", 
+            url: `${apiUrl}/api/products`, 
             headers: {
                 'Content-Type': 'application/json',
             }
