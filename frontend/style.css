@@ -41,3 +41,14 @@
 .product-price{
     font-size: 2rem;
 }
+
+/* Rating */
+.rating{
+    color: #ffc000;
+    font-size: 1.6rem;
+}
+
+.rating span:last-child{
+    color: #444444;
+    font-size: 1.4rem;
+}
