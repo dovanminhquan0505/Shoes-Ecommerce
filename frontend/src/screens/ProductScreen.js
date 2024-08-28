@@ -1,9 +1,9 @@
+import { parseRequestUrl } from '../utils.js'
 
 const ProductScreen = {
-    render: () => {
-        return (
-            `<div>ProductScreen</div>`
-        )
+    render: async () => {
+        const request = parseRequestUrl();
+        const product = await getProduct(request.id);
     }
 }
 
