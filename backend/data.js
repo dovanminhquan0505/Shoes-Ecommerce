@@ -20,7 +20,7 @@ export default { //when using the common a style of importing and exporting cont
             brand: 'Adidas',
             rating: 4,
             numReviews: 50,
-            countInStock: 6,
+            countInStock: 5,
         },
         {
             _id: '3',
@@ -31,7 +31,7 @@ export default { //when using the common a style of importing and exporting cont
             brand: 'Adidas',
             rating: 4.1,
             numReviews: 35,
-            countInStock: 6,
+            countInStock: 3,
         },
         {
             _id: '4',
@@ -42,7 +42,7 @@ export default { //when using the common a style of importing and exporting cont
             brand: 'Converse',
             rating: 4.2,
             numReviews: 89,
-            countInStock: 6,
+            countInStock: 0,
         },
         {
             _id: '5',
@@ -53,7 +53,7 @@ export default { //when using the common a style of importing and exporting cont
             brand: 'Gucci',
             rating: 4.6,
             numReviews: 45,
-            countInStock: 6,
+            countInStock: 2,
         },
         {
             _id: '6',
@@ -64,7 +64,7 @@ export default { //when using the common a style of importing and exporting cont
             brand: 'Monk Strap',
             rating: 3.9,
             numReviews: 38,
-            countInStock: 6,
+            countInStock: 10,
         }
     ]
 }
