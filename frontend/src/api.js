@@ -8,15 +8,15 @@ export const getProduct = async (id) => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-            }
+            },
         });
         //when can't get API response, web will return error message
         if(response.statusText !== 'OK'){ 
             throw new Error(response.data.message); 
         }
         return response.data;
-    } catch (error) {
-        console.log(error);
-        return { error: error.message };
+    } catch (err) {
+        console.log(err);
+        return { error: err.response.data.message || err.message };
     }
 };
