@@ -42,6 +42,16 @@ button.primary{
     width: 100%;
 }
 
+.success{
+    color: #40c040;
+    font-weight: bold;
+}
+
+.fail{
+    color: #c04040;
+    font-weight: bold;
+}
+
 .grid-container{
     display: grid;
     grid-template-areas: 
