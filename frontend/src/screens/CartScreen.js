@@ -1,6 +1,6 @@
 import { getProduct } from "../api";
 import { getCartItems, setCartItems } from "../localStorage";
-import { parseRequestUrl } from "../utils";
+import { parseRequestUrl, rerender } from "../utils";
 
 const addToCart = (item, forceUpdate = false) => {
     let cartItems = getCartItems();
@@ -12,6 +12,9 @@ const addToCart = (item, forceUpdate = false) => {
         );
     } else {
         cartItems = [...cartItems, item];
+    }
+    if(forceUpdate){
+        rerender(CartScreen);
     }
     //Update the cart items
     setCartItems(cartItems);
