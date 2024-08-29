@@ -3,7 +3,7 @@ const CartScreen = {
 
     },
     render: () => {
-
+        return `<div>Cart Screen</div>`;
     }
 }
 
