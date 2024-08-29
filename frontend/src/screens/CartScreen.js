@@ -34,6 +34,7 @@ const removeFromCart = (id) => {
 
 const CartScreen = {
     after_render: () => {
+        //Create DOM change event for quantity select
         const qtySelects = document.getElementsByClassName('qty-select');
         Array.from(qtySelects).forEach(qtySelect => {
             qtySelect.onchange = (e) => {
@@ -42,6 +43,7 @@ const CartScreen = {
             }
         });
 
+        //Create DOM click event for delete button
         const deleteButtons = document.querySelectorAll('.delete-button');
         console.log(deleteButtons);
         Array.from(deleteButtons).forEach(deleteButton => {
@@ -50,6 +52,7 @@ const CartScreen = {
             };
         })
 
+        //Go to LogIn page
         document.getElementById('checkout-button').addEventListener('click', () => {
             document.location.hash = '/signin';
         });
