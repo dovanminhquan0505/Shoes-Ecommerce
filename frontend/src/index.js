@@ -1,3 +1,4 @@
+import CartScreen from "./screens/CartScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import homeScreen from "./screens/HomeScreen.js";
 import ProductScreen from "./screens/ProductScreen.js";
@@ -6,6 +7,7 @@ import { parseRequestUrl } from "./utils.js";
 const routes = { //define the action when we click into each products page
     '/': homeScreen,
     '/product/:id': ProductScreen,
+    '/cart/:id': CartScreen
 }
 
 const router = async () => {
