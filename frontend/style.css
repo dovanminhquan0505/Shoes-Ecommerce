@@ -54,10 +54,6 @@
 }
 
 /* Product details */
-.content{
-    padding: 1rem;
-}
-
 .details {
     display: flex;
     justify-content: space-between;
@@ -105,5 +101,24 @@
     border: 0.1rem #808080 solid;
     border-radius: 0.5rem;
     background-color: #f8f8f8;
+    padding: 1rem;
+}
+
+/* Cart */
+.cart {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.cart-list{
+    flex: 3 1 60rem;
+
+}
+
+.cart-action{
+    flex: 1 1 20rem;
+    background-color: #f0f0f0;
+    border-radius: 0.5rem;
     padding: 1rem;
 }

@@ -39,7 +39,7 @@ const CartScreen = {
         }
         const cartItems = getCartItems();
         return `
-            <div class ="cart">
+            <div class ="content cart">
                 <div class="cart-list">
                     <ul class="cart-list-container">
                         <li>

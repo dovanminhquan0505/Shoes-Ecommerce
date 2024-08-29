@@ -63,6 +63,10 @@ button.primary{
     height: 100%;
 }
 
+.content{
+    padding: 1rem;
+}
+
 header{
     grid-area: header;
     background-color: #203040;
