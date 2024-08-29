@@ -48,7 +48,7 @@ const CartScreen = {
                         </li>
                         ${
                             cartItems.length === 0 ? 
-                            '<div>Cart is empty. <a href="/#/">Go Shopping</a></div>' :
+                            '<div>Cart is empty. <a href="/#/">Go Shopping</a>' :
                             cartItems.map(item => `
                                 <li>
                                     <div class="cart-image">
@@ -60,12 +60,13 @@ const CartScreen = {
                                                 ${item.name}
                                             </a>
                                         </div>
-                                    </div>
-                                    <div>
-                                        Quantity: <select class="qty-select" id="${item.product}">
-                                            <option value="1">1</option>
-                                        </select>
-                                        <button type="button" class="delete-button" id="${item.product}">Delete</button>
+                                        <div>
+                                            Quantity: 
+                                            <select class="qty-select" id="${item.product}">
+                                                <option value="1">1</option>
+                                            </select>
+                                            <button type="button" class="delete-button" id="${item.product}">Delete</button>
+                                        </div>
                                     </div>
                                     <div class="cart-price">
                                         ${item.price}$
