@@ -56,7 +56,7 @@ const CartScreen = {
                                     </div>
                                     <div class="cart-name">
                                         <div>
-                                            <a href="${`/#/product/${item.product}`}">
+                                            <a href="/#/product/${item.product}">
                                                 ${item.name}
                                             </a>
                                         </div>
@@ -67,8 +67,11 @@ const CartScreen = {
                                         </select>
                                         <button type="button" class="delete-button" id="${item.product}">Delete</button>
                                     </div>
+                                    <div class="cart-price">
+                                        ${item.price}$
+                                    </div>
                                 </li>    
-                            `)
+                            `).join('\n')
                         }
                     </ul>
                 </div>
