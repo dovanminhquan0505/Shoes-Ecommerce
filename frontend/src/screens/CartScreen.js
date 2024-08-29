@@ -19,7 +19,13 @@ const addToCart = (item, forceUpdate = false) => {
 
 const CartScreen = {
     after_render: () => {
-
+        const qtySelects = document.getElementsByClassName('qty-select');
+        Array.from(qtySelects).forEach(qtySelect => {
+            qtySelect.onchange = (e) => {
+                const item = getCartItems().find(x => x.product === qtySelect.id);
+                addToCart({...item, quantity: Number(e.target.value)}, false);
+            }
+        })
     },
     render: async () => {
         const response = parseRequestUrl();
