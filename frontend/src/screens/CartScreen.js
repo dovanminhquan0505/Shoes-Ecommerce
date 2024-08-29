@@ -37,7 +37,10 @@ const CartScreen = {
         } else {
             //Users click on the cart in the menu
         }
-        return `<div>Cart Screen</div>`;
+        return `
+            <div>Cart Screen</div>
+            <div>${getCartItems().length}</div>
+        `;
     }
 }
 
