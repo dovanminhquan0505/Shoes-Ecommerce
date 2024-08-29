@@ -7,17 +7,20 @@ const addToCart = (item, forceUpdate = false) => {
     //x.product is the ID of items inside cart of items 
     const existItem = cartItems.find(x => x.product === item.product);
     if(existItem){
-        cartItems = cartItems.map((x) =>
-            x.product === existItem.product ? item : x
-        );
+        if(forceUpdate){
+            cartItems = cartItems.map((x) =>
+                x.product === existItem.product ? item : x
+            );
+        }
     } else {
         cartItems = [...cartItems, item];
     }
+    //Update the cart items
+    setCartItems(cartItems);
+    
     if(forceUpdate){
         rerender(CartScreen);
     }
-    //Update the cart items
-    setCartItems(cartItems);
 }
 
 const CartScreen = {
@@ -26,7 +29,7 @@ const CartScreen = {
         Array.from(qtySelects).forEach(qtySelect => {
             qtySelect.onchange = (e) => {
                 const item = getCartItems().find(x => x.product === qtySelect.id);
-                addToCart({...item, quantity: Number(e.target.value)}, false);
+                addToCart({...item, quantity: Number(e.target.value)}, true);
             }
         })
     },
