@@ -7,7 +7,8 @@ import { parseRequestUrl } from "./utils.js";
 const routes = { //define the action when we click into each products page
     '/': homeScreen,
     '/product/:id': ProductScreen,
-    '/cart/:id': CartScreen
+    '/cart/:id': CartScreen,
+    '/cart': CartScreen //when user clicks on Cart in the top right menu, it should be redirected to the cart screen
 }
 
 const router = async () => {
