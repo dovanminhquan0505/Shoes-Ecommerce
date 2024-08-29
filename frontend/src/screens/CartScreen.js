@@ -1,5 +1,5 @@
 import { getProduct } from "../api";
-import { getCartItems } from "../localStorage";
+import { getCartItems, setCartItems } from "../localStorage";
 import { parseRequestUrl } from "../utils";
 
 const addToCart = (item, forceUpdate = false) => {
