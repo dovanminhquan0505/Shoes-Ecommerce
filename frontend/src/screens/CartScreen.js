@@ -17,7 +17,7 @@ const addToCart = (item, forceUpdate = false) => {
     }
     //Update the cart items
     setCartItems(cartItems);
-    
+
     if(forceUpdate){
         rerender(CartScreen);
     }
@@ -31,6 +31,13 @@ const CartScreen = {
                 const item = getCartItems().find(x => x.product === qtySelect.id);
                 addToCart({...item, quantity: Number(e.target.value)}, true);
             }
+        });
+
+        const deleteButtons = document.querySelector('delete-button');
+        Array.from(deleteButtons).forEach(deleteButton => {
+            deleteButton.onclick = () => {
+                removeFromCart(deleteButton.id);
+            };
         })
     },
     render: async () => {
