@@ -3,6 +3,7 @@ import Rating from '../components/Rating.js';
 import { parseRequestUrl } from '../utils'
 
 const ProductScreen = {
+    //render products when users click on add to cart button
     after_render: () => {
         const request = parseRequestUrl();
         document.getElementById('add-button').addEventListener('click',
