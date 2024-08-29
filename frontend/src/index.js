@@ -17,6 +17,7 @@ const router = async () => {
     const screen = routes[parseUrl]? routes[parseUrl]: Error404Screen;
     const main = document.getElementById('main-container');
     main.innerHTML = await screen.render(); //render the products to views
+    await screen.after_render();//render the products to cart
 };
 
 //add event listener to the window when the page load and when the hash change
