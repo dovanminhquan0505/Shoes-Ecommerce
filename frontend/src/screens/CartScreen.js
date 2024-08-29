@@ -42,7 +42,8 @@ const CartScreen = {
             }
         });
 
-        const deleteButtons = document.querySelector('delete-button');
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        console.log(deleteButtons);
         Array.from(deleteButtons).forEach(deleteButton => {
             deleteButton.onclick = () => {
                 removeFromCart(deleteButton.id);
