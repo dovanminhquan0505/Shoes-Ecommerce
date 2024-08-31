@@ -4,7 +4,7 @@ import Error404Screen from "./screens/Error404Screen.js";
 import homeScreen from "./screens/HomeScreen.js";
 import ProductScreen from "./screens/ProductScreen.js";
 import SigninScreen from "./screens/SigninScreen.js";
-import { parseRequestUrl } from "./utils.js";
+import { hideLoading, parseRequestUrl, showLoading } from "./utils.js";
 
 const routes = { //define the action when we click into each products page
     '/': homeScreen,
@@ -15,6 +15,7 @@ const routes = { //define the action when we click into each products page
 }
 
 const router = async () => {
+    showLoading();
     const request = parseRequestUrl();
     const parseUrl = //define the url
         (request.resource ? `/${request.resource}` : '/') +
@@ -31,6 +32,8 @@ const router = async () => {
     const main = document.getElementById('main-container');
     main.innerHTML = await screen.render(); //render the products to views
     await screen.after_render();//render the products to cart
+
+    hideLoading();
 };
 
 //add event listener to the window when the page load and when the hash change
