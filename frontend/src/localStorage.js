@@ -33,3 +33,8 @@ export const getUserInfo = () => {
     JSON.parse(localStorage.getItem('userInfo')) :
     {name: '', email: '', password: ''};
 };
+
+//Delete user information
+export const clearUser = () => {
+    localStorage.removeItem('userInfo');
+};

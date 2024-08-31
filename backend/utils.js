@@ -17,6 +17,9 @@ export const isAuth = (req, res, next) => {
     if(!bearerToken){
         res.status(401).send({message: 'Token is not supplied!'})
     } else {
+        //If there is a token, it will get the actual token part from the bearerToken string.
+        //This string is usually of the form "Bearer <token>",
+        //so the slice(7, bearerToken.length) function will remove the "Bearer " at the beginning and keep only the <token> part.
         const token = bearerToken.slice(7, bearerToken.length);
         jwt.verify(token, config.JWT_SECRET, (err, data) => {
             if(err){
