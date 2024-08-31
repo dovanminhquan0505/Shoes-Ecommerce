@@ -11,6 +11,7 @@ const SigninScreen = {
             if(data.error){
                 alert(data.error);
             }else {
+                setUserInfo(data);
                 //when all of info's user is correct, it will go to home screen
                 document.location.hash = '/'
             }
