@@ -3,6 +3,7 @@ import User from '../models/userModel';
 //Express-async-handler helps handle errors that arise
 //during the execution of async functions without having to write additional code to catch errors (try-catch) in each route handler.
 import expressAsyncHandler from 'express-async-handler';
+import { generateToken } from '../utils';
 
 const userRouter = express.Router();
 
