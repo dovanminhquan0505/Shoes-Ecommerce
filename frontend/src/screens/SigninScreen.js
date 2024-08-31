@@ -1,4 +1,5 @@
 import { signin } from "../api";
+import { getUserInfo, setUserInfo } from "../localStorage";
 
 const SigninScreen = {
     after_render: () => {
@@ -18,6 +19,10 @@ const SigninScreen = {
         })
     },
     render: () => {
+        if(getUserInfo().name){
+            //If user is already logged-in, it will go to home screen
+            document.location.hash = '/';
+        }
         return `
             <div class="form-container">
                 <form id="signin-form">
