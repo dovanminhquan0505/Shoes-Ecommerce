@@ -1,6 +1,8 @@
+import { signin } from "../api";
+
 const SigninScreen = {
     after_render: () => {
-        document.getElementById('signin_form').addEventListener('submit', async (e) => {
+        document.getElementById('signin-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const data = await signin({
                 email: document.getElementById('email').value,

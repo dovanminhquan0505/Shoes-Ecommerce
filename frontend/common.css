@@ -33,7 +33,6 @@ button{
     border-radius: 0.5rem;
 }
 
-input,
 button:hover{
     border: 0.1rem #303030 solid;
     color: #ffffff
