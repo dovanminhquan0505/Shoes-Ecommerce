@@ -8,6 +8,6 @@ const userSchema = new mongoose.Schema({
 })
 
 //Require MongoDB to create a collection named user based on the userSchema.
-const userModel = mongoose.model('User', userSchema)
+const User = mongoose.model('User', userSchema)
 
-export default userModel;
+export default User;
