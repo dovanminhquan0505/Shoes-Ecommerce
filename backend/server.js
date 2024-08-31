@@ -3,16 +3,19 @@ import express from "express";
 import cors from "cors";
 import data from "./data.js";
 import mongoose from "mongoose";
+import config from "./config.js";
 
-mongoose.connect(config.MONGODB_URL, {
-    //use three settings to prevent any errors or warnings in my console after connecting.
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-}).catch((err) => {
+//Create MongoDB Connection
+mongoose
+    .connect(config.MONGODB_URL)
+    .then(() => {
+        console.log('Connected to MongoDB!');
+    })
+    .catch((err) => {
     //if there is an error, I will get a message in the terminal
-    console.log(err.reason);
-})
+        console.log(err.message);
+    });
+
 const app = express();
 app.use(cors());
 app.get("/api/products", (req, res) => {
