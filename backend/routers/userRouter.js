@@ -70,4 +70,27 @@ userRouter.post(
     }
 }));
 
+userRouter.put(
+    '/:id', 
+    expressAsyncHandler(async (req, res) => {
+    //findById to find the user with their id by req.params.id
+    const user = await User.findById(req.params.id);
+
+    if(!user){
+        res.status(404).send({message: 'User Not Found!'});
+    } else{
+        user.name = req.body.name || user.name;
+        user.email = req.body.email || user.email;
+        user.password = req.body.password || user.password;
+        const updatedUser = await user.save();
+        res.send({
+            _id: updatedUser._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin,
+            token: generateToken(updatedUser)
+        })
+    }
+}));
+
 export default userRouter;

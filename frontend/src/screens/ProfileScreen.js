@@ -1,13 +1,13 @@
-import { register } from "../api";
+import { update } from "../api";
 import { getUserInfo, setUserInfo } from "../localStorage";
 import { hideLoading, showLoading, showMessage } from "../utils";
 
 const ProfileScreen = {
     after_render: () => {
-        document.getElementById('register-form').addEventListener('submit', async (e) => {
+        document.getElementById('profile-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             showLoading();
-            const data = await register({
+            const data = await update({
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 password: document.getElementById('password').value,
@@ -30,7 +30,7 @@ const ProfileScreen = {
         }
         return `
             <div class="form-container">
-                <form id="register-form">
+                <form id="profile-form">
                     <ul class="form-items">
                         <li>
                             <h1>User Profile</h1>

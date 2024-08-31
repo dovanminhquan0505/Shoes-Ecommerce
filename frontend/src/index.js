@@ -3,6 +3,7 @@ import CartScreen from "./screens/CartScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import homeScreen from "./screens/HomeScreen.js";
 import ProductScreen from "./screens/ProductScreen.js";
+import ProfileScreen from "./screens/ProfileScreen.js";
 import RegisterScreen from "./screens/RegisterScreen.js";
 import SigninScreen from "./screens/SigninScreen.js";
 import { hideLoading, parseRequestUrl, showLoading } from "./utils.js";
@@ -14,6 +15,7 @@ const routes = { //define the action when we click into each products page
     '/cart': CartScreen, //when user clicks on Cart in the top right menu, it should be redirected to the cart screen
     '/signin': SigninScreen,
     '/register': RegisterScreen,
+    '/profile': ProfileScreen
 }
 
 const router = async () => {
@@ -33,7 +35,9 @@ const router = async () => {
     //render header to views
     const main = document.getElementById('main-container');
     main.innerHTML = await screen.render(); //render the products to views
-    await screen.after_render();//render the products to cart
+    if(screen.after_render){
+        await screen.after_render();//render the products to cart
+    }
 
     hideLoading();
 };
