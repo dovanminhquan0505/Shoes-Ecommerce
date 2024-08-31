@@ -1,6 +1,6 @@
 import { signin } from "../api";
 import { getUserInfo, setUserInfo } from "../localStorage";
-import { hideLoading, showLoading } from "../utils";
+import { hideLoading, showLoading, showMessage } from "../utils";
 
 const SigninScreen = {
     after_render: () => {
@@ -13,7 +13,7 @@ const SigninScreen = {
             })
             hideLoading();
             if(data.error){
-                alert(data.error);
+                showMessage(data.error);
             }else {
                 setUserInfo(data);
                 //when all of info's user is correct, it will go to home screen
