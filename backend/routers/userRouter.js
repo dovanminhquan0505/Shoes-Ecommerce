@@ -3,7 +3,7 @@ import User from '../models/userModel';
 //Express-async-handler helps handle errors that arise
 //during the execution of async functions without having to write additional code to catch errors (try-catch) in each route handler.
 import expressAsyncHandler from 'express-async-handler';
-import { generateToken } from '../utils';
+import { generateToken, isAuth } from '../utils';
 
 const userRouter = express.Router();
 
@@ -72,6 +72,7 @@ userRouter.post(
 
 userRouter.put(
     '/:id', 
+    isAuth,
     expressAsyncHandler(async (req, res) => {
     //findById to find the user with their id by req.params.id
     const user = await User.findById(req.params.id);
