@@ -22,13 +22,18 @@ a:hover{
 }
 
 button{
+    cursor: pointer;
+}
+
+input,
+button{
     font: 1.6rem helvetica, Arial;
     padding: 1rem;
     border: 0.1rem #808080 solid;
     border-radius: 0.5rem;
-    cursor: pointer;
 }
 
+input,
 button:hover{
     border: 0.1rem #303030 solid;
     color: #ffffff
