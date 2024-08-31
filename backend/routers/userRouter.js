@@ -6,7 +6,9 @@ import expressAsyncHandler from 'express-async-handler';
 
 const userRouter = express.Router();
 
-userRouter.get("/createadmin", expressAsyncHandler(async (req, res) => {
+userRouter.get(
+    "/createadmin", 
+    expressAsyncHandler(async (req, res) => {
     try {
         const user = new User({
             name: 'admin',
@@ -30,8 +32,17 @@ userRouter.post(
         email: req.body.email,
         password: req.body.password,
     });
+
     if(!signinUser){
         res.status(401).send({message: 'Invalid email or password!'})
+    } else{
+        res.send({
+            _id: signinUser._id,
+            name: signinUser.name,
+            email: signinUser.email,
+            isAdmin: signinUser.isAdmin,
+            token: generateToken(signinUser)
+        })
     }
 }));
 

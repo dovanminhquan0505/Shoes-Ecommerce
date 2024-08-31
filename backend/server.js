@@ -39,6 +39,12 @@ app.get('/api/products/:id', (req, res) => {
     }
 })
 
+app.use((err, req, res, next) => {
+    //Check if the error object has a name property and if this property has a value of "ValidationError".
+    const status = err.name && err.name === "ValidationError" ? 400 : 500;
+    res.status(status).send({message: err.message});
+});
+
 app.listen(5000, () => {
     console.log("Server at http://localhost:5000");
 });
