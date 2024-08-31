@@ -78,6 +78,14 @@ button.primary{
     width: 100%;
 }
 
+.register-font{
+    font-weight: bold;
+}
+
+.signin-font{
+    font-weight: bold;
+}
+
 .success{
     color: #40c040;
     font-weight: bold;

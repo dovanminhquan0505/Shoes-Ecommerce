@@ -56,7 +56,7 @@ const RegisterScreen = {
                         <li>
                             <div>
                                 Already have an account?
-                                <a href="/#/signin">Sign-In</a>
+                                <a href="/#/signin" class="register-font">Sign-In</a>
                             </div>
                         </li>
                     </ul>
