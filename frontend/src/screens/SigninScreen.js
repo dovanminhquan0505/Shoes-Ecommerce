@@ -1,6 +1,18 @@
 const SigninScreen = {
     after_render: () => {
-
+        document.getElementById('signin_form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = await signin({
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+            })
+            if(data.error){
+                alert(data.error);
+            }else {
+                //when all of info's user is correct, it will go to home screen
+                document.location.hash = '/'
+            }
+        })
     },
     render: () => {
         return `
