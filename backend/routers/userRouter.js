@@ -13,7 +13,7 @@ userRouter.get(
     try {
         const user = new User({
             name: 'admin',
-            email: 'admin@domain.com',
+            email: 'admin@gmail.com',
             password: 'shoesheaven',
             isAdmin: true,
         });
