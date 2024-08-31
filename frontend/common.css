@@ -60,6 +60,20 @@ button.primary{
     color: #ffffff;
 }
 
+.overlay > div {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 40rem;
+}
+
+.overlay > div > * {
+    margin: 2rem;
+}
+
 .fw{ /*full width*/
     width: 100%;
 }
