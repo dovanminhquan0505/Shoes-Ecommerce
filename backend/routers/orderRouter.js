@@ -18,6 +18,6 @@ orderRouter.post('/', isAuth, expressAsyncHandler(async (req, res) => {
         totalPrice: req.body.totalPrice,
     });
     const createdOrder = await order.save();
-    res.status(201).send({ message: 'New order created', data: createdOrder });
+    res.status(201).send({ message: 'New order created', order: createdOrder });
 }));
 export default orderRouter;
