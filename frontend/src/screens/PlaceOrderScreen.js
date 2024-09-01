@@ -73,7 +73,7 @@ const PlaceOrderScreen = {
                                             <div class="cart-image">
                                                 <img src="${item.image}" alt="${item.name}"/>
                                             </div>
-                                            <div class="cart-item">
+                                            <div class="cart-name">
                                                 <div>
                                                     <a href="/#/product/${item.product}">${item.name}</a>
                                                 </div>
@@ -102,7 +102,7 @@ const PlaceOrderScreen = {
                                 <div>Tax</div>
                                 <div>${taxPrice}$</div>
                             </li>
-                            <li>
+                            <li class="total">
                                 <div>Order Total</div>
                                 <div>${totalPrice}$</div>
                             </li>
