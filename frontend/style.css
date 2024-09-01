@@ -218,4 +218,5 @@
 .checkout-steps > div.active{
     color: #f08000;
     border-top-color: #f08000;
+    font-weight: bold;
 }
