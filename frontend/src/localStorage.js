@@ -39,6 +39,10 @@ export const clearUser = () => {
     localStorage.removeItem('userInfo');
 };
 
+export const clearCart = () => {
+    localStorage.removeItem('cartItems');
+};
+
 export const getShipping = () => {
     const shipping = localStorage.getItem('shipping')
     ? JSON.parse(localStorage.getItem('shipping')) 

@@ -1,5 +1,6 @@
 import CheckoutSteps from "../components/CheckoutSteps";
-import { getCartItems, getPayment, getShipping } from "../localStorage";
+import { clearCart, getCartItems, getPayment, getShipping } from "../localStorage";
+import { hideLoading, showLoading, showMessage } from "../utils";
 
 const convertCartToOrder = () => {
     const orderItems = getCartItems(); 
@@ -32,8 +33,17 @@ const convertCartToOrder = () => {
 }
 
 const PlaceOrderScreen = {
-    after_render: () => {
-
+    after_render: async () => {
+        const order = convertCartToOrder();
+        showLoading();
+        const data = await createOrder(order);
+        hideLoading();
+        if(data.error){
+            showMessage(data.error);
+        } else {
+            clearCart();
+            document.location.hash = `/order/${data.order._id}`;
+        }
     },
     render: () => {
         const {
@@ -106,7 +116,7 @@ const PlaceOrderScreen = {
                                 <div>Order Total</div>
                                 <div>${totalPrice}$</div>
                             </li>
-                            <button class="primary fw">
+                            <button id="placeorder-button" class="primary fw">
                                 Place Order
                             </button>
                         </ul>
