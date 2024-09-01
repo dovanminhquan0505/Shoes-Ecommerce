@@ -3,6 +3,7 @@ import CartScreen from "./screens/CartScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import homeScreen from "./screens/HomeScreen.js";
 import PaymentScreen from "./screens/PaymentScreen.js";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
 import ProductScreen from "./screens/ProductScreen.js";
 import ProfileScreen from "./screens/ProfileScreen.js";
 import RegisterScreen from "./screens/RegisterScreen.js";
@@ -19,7 +20,8 @@ const routes = { //define the action when we click into each products page
     '/register': RegisterScreen,
     '/profile': ProfileScreen,
     '/shipping': ShippingScreen,
-    '/payment': PaymentScreen
+    '/payment': PaymentScreen,
+    '/placeorder': PlaceOrderScreen
 }
 
 const router = async () => {
