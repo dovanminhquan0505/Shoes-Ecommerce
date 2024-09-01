@@ -97,3 +97,23 @@ export const update = async ({name, email, password}) => {
         return {error: error.response.data.message || error.message};
     }
 }
+
+export const createOrder = async (order) => {
+    try {
+        const {token} = getUserInfo();
+        const response = await axios({
+            url: `${apiUrl}/api/order`,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            data: order,
+        });
+        if(response.statusText !== 'OK'){
+            throw new Error(response.data.message);
+        }
+        return response.data;
+    } catch (error) {
+        return {error: error.response.data.message || error.message};
+    }
+}
