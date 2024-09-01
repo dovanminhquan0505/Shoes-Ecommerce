@@ -1,6 +1,6 @@
 import { signin } from "../api";
 import { getUserInfo, setUserInfo } from "../localStorage";
-import { hideLoading, showLoading, showMessage } from "../utils";
+import { hideLoading, redirectUser, showLoading, showMessage } from "../utils";
 
 const SigninScreen = {
     after_render: () => {
@@ -17,14 +17,14 @@ const SigninScreen = {
             }else {
                 setUserInfo(data);
                 //when all of info's user is correct, it will go to home screen
-                document.location.hash = '/'
+                redirectUser();
             }
         })
     },
     render: () => {
         if(getUserInfo().name){
             //If user is already logged-in, it will go to home screen
-            document.location.hash = '/';
+            redirectUser();
         }
         return `
             <div class="form-container">
