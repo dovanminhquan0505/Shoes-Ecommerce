@@ -86,7 +86,30 @@ const PlaceOrderScreen = {
                         </div>
                     </div>
                     <div class="order-action">
-                        Order Action
+                        <ul>
+                            <li>
+                                <h2>Order Summary</h2>
+                            </li>
+                            <li>
+                                <div>Items</div>
+                                <div>${itemsPrice}$</div>
+                            </li>
+                            <li>
+                                <div>Shipping</div>
+                                <div>${shippingPrice}$</div>
+                            </li>
+                            <li>
+                                <div>Tax</div>
+                                <div>${taxPrice}$</div>
+                            </li>
+                            <li>
+                                <div>Order Total</div>
+                                <div>${totalPrice}$</div>
+                            </li>
+                            <button class="primary fw">
+                                Place Order
+                            </button>
+                        </ul>
                     </div>
                 </div>
             </div>
