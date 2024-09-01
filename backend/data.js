@@ -1,7 +1,8 @@
 export default { //when using the common a style of importing and exporting content in JS files
     products: [ // Create properties of products
         {
-            _id: '1',
+            //create ID is suitable for MongoDB 
+            _id: '111111111111111111111111',
             name: 'Air Force 1 Low 07 LV8 Panda Shoes',
             category: 'Shoes',
             image: '/images/product-1.jpg',
@@ -12,7 +13,7 @@ export default { //when using the common a style of importing and exporting cont
             countInStock: 6,
         },
         {
-            _id: '2',
+            _id: '222222222222222222222222',
             name: 'NY 90 Core White FZ2247 Shoes',
             category: 'Shoes',
             image: '/images/product-2.jpg',
@@ -23,7 +24,7 @@ export default { //when using the common a style of importing and exporting cont
             countInStock: 5,
         },
         {
-            _id: '3',
+            _id: '333333333333333333333333',
             name: 'Samba OG IE3675 Shoes',
             category: 'Shoes',
             image: '/images/product-3.jpg',
@@ -34,7 +35,7 @@ export default { //when using the common a style of importing and exporting cont
             countInStock: 3,
         },
         {
-            _id: '4',
+            _id: '444444444444444444444444',
             name: 'Converse Chuck Taylor All Star Lift Low Top Shoes',
             category: 'Shoes',
             image: '/images/product-4.webp',
@@ -45,7 +46,7 @@ export default { //when using the common a style of importing and exporting cont
             countInStock: 0,
         },
         {
-            _id: '5',
+            _id: '555555555555555555555555',
             name: 'Sneaker Rhyton Logo Leather',
             category: 'Shoes',
             image: '/images/product-5.jpg',
@@ -56,7 +57,7 @@ export default { //when using the common a style of importing and exporting cont
             countInStock: 2,
         },
         {
-            _id: '6',
+            _id: '666666666666666666666666',
             name: 'Monk Strap Men\'s Dress Shoes',
             category: 'Shoes',
             image: '/images/product-6.jpeg',
