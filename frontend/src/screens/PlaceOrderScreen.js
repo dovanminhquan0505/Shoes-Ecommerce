@@ -1,3 +1,4 @@
+import { createOrder } from "../api";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { clearCart, getCartItems, getPayment, getShipping } from "../localStorage";
 import { hideLoading, showLoading, showMessage } from "../utils";
@@ -19,7 +20,7 @@ const convertCartToOrder = () => {
     //Calculate the price of products
     const itemsPrice = orderItems.reduce((a, c) => a + c.price * c.quantity, 0);
     const shippingPrice = itemsPrice > 100 ? 0 : 10;
-    const taxPrice = Math.round(0.15 * itemsPrice * 100) / 100;
+    const taxPrice = Math.round((0.15 * itemsPrice * 100) / 100);
     const totalPrice = itemsPrice + shippingPrice + taxPrice;
     return {
         orderItems,
@@ -34,16 +35,18 @@ const convertCartToOrder = () => {
 
 const PlaceOrderScreen = {
     after_render: async () => {
-        const order = convertCartToOrder();
-        showLoading();
-        const data = await createOrder(order);
-        hideLoading();
-        if(data.error){
-            showMessage(data.error);
-        } else {
-            clearCart();
-            document.location.hash = `/order/${data.order._id}`;
-        }
+        document.getElementById('placeorder-button').addEventListener('click', async () => {
+            const order = convertCartToOrder();
+            showLoading();
+            const data = await createOrder(order);
+            hideLoading();
+            if(data.error){
+                showMessage(data.error);
+            } else {
+                clearCart();
+                document.location.hash = `/order/${data.order._id}`;
+            }
+        })
     },
     render: () => {
         const {

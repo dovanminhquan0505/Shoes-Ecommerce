@@ -101,8 +101,9 @@ export const update = async ({name, email, password}) => {
 export const createOrder = async (order) => {
     try {
         const {token} = getUserInfo();
-        const response = await axios({
-            url: `${apiUrl}/api/order`,
+        const response = axios({
+            url: `${apiUrl}/api/orders`,
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
@@ -114,6 +115,6 @@ export const createOrder = async (order) => {
         }
         return response.data;
     } catch (error) {
-        return {error: error.response.data.message || error.message};
+        return {error: (error.response ? error.response.data.message : error.message)};
     }
 }
