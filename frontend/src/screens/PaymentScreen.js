@@ -1,18 +1,15 @@
 import CheckoutSteps from "../components/CheckoutSteps";
-import { getUserInfo, getPayment, setPayment } from "../localStorage";
+import { getUserInfo, setPayment } from "../localStorage";
 
 const PaymentScreen = {
     after_render: () => {
         document.getElementById('payment-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             //Save the payment information
-            setPayment({
-                address: document.getElementById('address').value,
-                city: document.getElementById('city').value,
-                postalCode: document.getElementById('postalCode').value,
-                country: document.getElementById('country').value,
-            })
-            document.location.hash = '/payment'
+            //Code to read the value of a payment
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+            setPayment({ paymentMethod })
+            document.location.hash = '/placeorder'
         })
     },
     render: () => {
@@ -21,9 +18,8 @@ const PaymentScreen = {
             //If user is already logged-in, it will go to home screen
             document.location.hash = '/';
         }
-        const {address, city, postalCode, country}= getPayment();
         return `
-            ${CheckoutSteps.render({step1: true, step2: true})}
+            ${CheckoutSteps.render({step1: true, step2: true, step3: true})}
             <div class="form-container">
                 <form id="payment-form">
                     <ul class="form-items">
@@ -31,20 +27,16 @@ const PaymentScreen = {
                             <h1>Payment</h1>
                         </li>
                         <li>
-                            <label for="address">Address</label>
-                            <input type="text" name="address" id="address" value = "${address}"/>
+                            <div>
+                                <input type="radio" name="payment-method" id="paypal" value="Paypal" checked/>
+                                <label for="paypal">Paypal</label>
+                            </div>
                         </li>
                         <li>
-                            <label for="city">City</label>
-                            <input type="text" name="city" id="city" value = "${city}"/>
-                        </li>
-                        <li>
-                            <label for="postalCode">Postal Code</label>
-                            <input type="text" name="postalCode" id="postalCode" value = "${postalCode}"/>
-                        </li>
-                        <li>
-                            <label for="country">Country</label>
-                            <input type="text" name="country" id="country" value = "${country}"/>
+                            <div>
+                                <input type="radio" name="payment-method" id="stripe" value="Stripe" checked/>
+                                <label for="stripe">Stripe</label>
+                            </div>
                         </li>
                         <li>
                             <button type="submit" class="primary">Continue</button>
