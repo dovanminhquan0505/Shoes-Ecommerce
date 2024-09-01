@@ -1,62 +1,53 @@
-import { update } from "../api";
-import { getUserInfo, setUserInfo, clearUser } from "../localStorage";
-import { hideLoading, showLoading, showMessage } from "../utils";
+import CheckoutSteps from "../components/CheckoutSteps";
+import { getUserInfo, getShipping, setShipping } from "../localStorage";
 
 const ShippingScreen = {
     after_render: () => {
-        document.getElementById('signout-button').addEventListener('click', () => {
-            clearUser();
-            document.location.hash = '/';
-        })
-        document.getElementById('profile-form').addEventListener('submit', async (e) => {
+        document.getElementById('shipping-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            showLoading();
-            const data = await update({
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                password: document.getElementById('password').value,
+            //Save the shipping information
+            setShipping({
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                postalCode: document.getElementById('postalCode').value,
+                country: document.getElementById('country').value,
             })
-            hideLoading();
-            if(data.error){
-                showMessage(data.error);
-            }else {
-                setUserInfo(data);
-                //when all of info's user is correct, it will go to home screen
-                document.location.hash = '/'
-            }
+            document.location.hash = '/payment'
         })
     },
     render: () => {
-        const {name, email} = getShipping();
+        const {name} = getUserInfo();
         if(!name){
             //If user is already logged-in, it will go to home screen
             document.location.hash = '/';
         }
         const {address, city, postalCode, country}= getShipping();
         return `
+            ${CheckoutSteps.render({step1: true, step2: true})}
             <div class="form-container">
                 <form id="shipping-form">
                     <ul class="form-items">
                         <li>
-                            <h1>User Profile</h1>
+                            <h1>Shipping</h1>
                         </li>
                         <li>
-                            <label for="name">Name</label>
-                            <input type="name" name="name" id="name" value = "${name}"/>
+                            <label for="address">Address</label>
+                            <input type="text" name="address" id="address" value = "${address}"/>
                         </li>
                         <li>
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" value = ${email}/>
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city" value = "${city}"/>
                         </li>
                         <li>
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password"/>
+                            <label for="postalCode">Postal Code</label>
+                            <input type="text" name="postalCode" id="postalCode" value = "${postalCode}"/>
                         </li>
                         <li>
-                            <button type="submit" class="primary">Update</button>
+                            <label for="country">Country</label>
+                            <input type="text" name="country" id="country" value = "${country}"/>
                         </li>
                         <li>
-                            <button type="button" id="signout-button">Sign-out</button>
+                            <button type="submit" class="primary">Continue</button>
                         </li>
                     </ul>
                 </form>
