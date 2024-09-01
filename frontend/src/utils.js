@@ -36,3 +36,12 @@ export const showMessage = (message, callback) => {
         }
     })
 }
+
+export const redirectUser = () => {
+    if(getCartItems().length !== 0){
+        //when user has items in their cart, so redirect them to the shipping page
+        document.location.hash = '/shipping';   
+    } else {
+        document.location.hash = '/';
+    }
+}
