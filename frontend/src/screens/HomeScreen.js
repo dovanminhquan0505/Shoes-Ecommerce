@@ -1,25 +1,13 @@
-import axios from 'axios';
 import Rating from '../components/Rating';
-import { apiUrl } from '../config';
-import { hideLoading, showLoading } from '../utils';
+import { getProducts } from '../api';
 
 const homeScreen = {
     //Code to get data from frontend to backend
     render: async () => {
-        showLoading();
-        // Code to fetch data from backend using fetch API
-        const response = await axios({ //change fetch to axios when installing npm axios package
-            url: `${apiUrl}/api/products`, 
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        });
-        hideLoading();
-        if(!response || response.statusText !== 'OK'){
-            return `<div>Error in getting data</div>`;
-        };
-
-        const products = response.data;
+        const products = await getProducts();
+        if(products.error){
+            return `<div class="fail">${products.error}</div>`;
+        }
 
         return `
             <ul class="products">
