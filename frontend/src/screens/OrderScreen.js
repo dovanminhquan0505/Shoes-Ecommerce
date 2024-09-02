@@ -1,25 +1,12 @@
-import { createOrder } from "../api";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { hideLoading, parseRequestUrl, showLoading, showMessage } from "../utils";
+import { getOrder } from "../api";
+import { parseRequestUrl } from "../utils";
 
-const PlaceOrderScreen = {
-    after_render: async () => {
-        document.getElementById('placeorder-button').addEventListener('click', async () => {
-            const order = convertCartToOrder();
-            showLoading();
-            const data = await createOrder(order);
-            hideLoading();
-            if(data.error){
-                showMessage(data.error);
-            } else {
-                clearCart();
-                document.location.hash = `/order/${data.order._id}`;
-            }
-        })
-    },
+const OrderScreen = {
+    after_render: async () => {},
     render: async () => {
         const request =parseRequestUrl();
         const {
+            _id,
             shipping,
             payment,
             orderItems,
@@ -30,7 +17,7 @@ const PlaceOrderScreen = {
         } = await getOrder(request.id);
         return `
             <div>
-                ${CheckoutSteps.render({step1: true, step2: true, step3: true, step4: true})}
+                <h1>Order ${_id}</h1>
                 <div class="order">
                     <div class="order-info">
                         <div>
@@ -97,4 +84,4 @@ const PlaceOrderScreen = {
     }
 }
 
-export default PlaceOrderScreen;
+export default OrderScreen;

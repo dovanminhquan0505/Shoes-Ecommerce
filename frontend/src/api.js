@@ -119,7 +119,7 @@ export const createOrder = async (order) => {
     }
 }
 
-export const getOrders = async (id) => {
+export const getOrder = async (id) => {
     try {
         const {token} = getUserInfo();
         const response = await axios({

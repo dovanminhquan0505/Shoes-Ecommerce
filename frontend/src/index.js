@@ -2,6 +2,7 @@ import Header from "./components/header.js";
 import CartScreen from "./screens/CartScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import homeScreen from "./screens/HomeScreen.js";
+import OrderScreen from "./screens/OrderScreen.js";
 import PaymentScreen from "./screens/PaymentScreen.js";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
 import ProductScreen from "./screens/ProductScreen.js";
@@ -14,6 +15,7 @@ import { hideLoading, parseRequestUrl, showLoading } from "./utils.js";
 const routes = { //define the action when we click into each products page
     '/': homeScreen,
     '/product/:id': ProductScreen,
+    '/order/:id': OrderScreen,
     '/cart/:id': CartScreen,
     '/cart': CartScreen, //when user clicks on Cart in the top right menu, it should be redirected to the cart screen
     '/signin': SigninScreen,
