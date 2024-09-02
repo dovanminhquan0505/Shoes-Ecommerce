@@ -34,7 +34,7 @@ const ProfileScreen = {
         }
         const orders = await getMyOrder();
         return `
-            <div class="profile">
+            <div class="content profile">
                 <div class="profile-info">
                     <div class="form-container">
                         <form id="profile-form">
@@ -65,15 +65,16 @@ const ProfileScreen = {
                     </div>
                 </div>
                 <div class="profile-orders">
+                <h2>Order History</h2>
                     <table>
                         <thead>
                             <tr>
-                                <th>Order ID</th>
-                                <th>Date</th>
-                                <th>Total Price</th>
-                                <th>Paid</th>
-                                <th>Delivered</th>
-                                <th>Actions</th>
+                                <th>ORDER ID</th>
+                                <th>DATE</th>
+                                <th>TOTAL PRICE</th>
+                                <th>PAID</th>
+                                <th>DELIVERED</th>
+                                <th>ACTIONS</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -84,11 +85,11 @@ const ProfileScreen = {
                                         <td>${order._id}</td>
                                         <td>${order.createdAt}</td>
                                         <td>${order.totalPrice}</td>
-                                        <td>${order.paidAt}</td>
-                                        <td>${order.deliveryAt}</td>
+                                        <td>${order.paidAt || 'No'}</td>
+                                        <td>${order.deliveryAt || 'No'}</td>
                                         <td><a href="/#/order/${order._id}">Details</a></td>
                                     </tr>
-                                `)
+                                `).join('\n')
                             }
                         </tbody>
                     </table>
