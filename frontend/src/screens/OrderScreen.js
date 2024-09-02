@@ -14,6 +14,10 @@ const OrderScreen = {
             shippingPrice,
             taxPrice,
             totalPrice,
+            isDelivered,
+            deliveredAt,
+            isPaid,
+            paidAt,
         } = await getOrder(request.id);
         return `
             <div>
@@ -25,12 +29,22 @@ const OrderScreen = {
                             <div>
                                 ${shipping.address}, ${shipping.city}, ${shipping.postalCode}, ${shipping.country}
                             </div>
+                            ${
+                                isDelivered 
+                                    ? `<div class="success">Delivered at ${deliveredAt}</div>`
+                                    : `<div class="fail">Not Delivered</div>`
+                            }
                         </div>
                         <div>
                             <h2>Payment</h2>
                             <div>
                                 Payment Method: ${payment.paymentMethod}
                             </div>
+                            ${
+                                isPaid 
+                                    ? `<div class="success">Paid at ${paidAt}</div>`
+                                    : `<div class="fail">Not Paid</div>`
+                            }
                         </div>
                         <div>
                             <ul class="cart-list-container">
