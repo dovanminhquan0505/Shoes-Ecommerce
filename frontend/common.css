@@ -123,8 +123,8 @@ header{
 
 header a{
     color: #ffffff;
-    font-weight: bold;
     text-decoration: none;
+    padding-right: 1rem;
 }
 
 header a:hover{
@@ -132,7 +132,9 @@ header a:hover{
 }
 
 .brand a{
+    font-weight: bold;
     font-size: 3rem;
+    padding-left: 1rem;
 }
 
 footer{

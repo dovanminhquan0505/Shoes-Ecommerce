@@ -1,5 +1,6 @@
-import Header from "./components/header.js";
+import Header from "./components/Header.js";
 import CartScreen from "./screens/CartScreen.js";
+import DashboardScreen from "./screens/DashboardScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import homeScreen from "./screens/HomeScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
@@ -23,7 +24,8 @@ const routes = { //define the action when we click into each products page
     '/profile': ProfileScreen,
     '/shipping': ShippingScreen,
     '/payment': PaymentScreen,
-    '/placeorder': PlaceOrderScreen
+    '/placeorder': PlaceOrderScreen,
+    '/dashboard' : DashboardScreen,
 }
 
 const router = async () => {
