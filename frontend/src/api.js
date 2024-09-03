@@ -307,17 +307,20 @@ export const getMyOrder = async () => {
 }
 
 export const getPaypalClientId = async () => {
-    const response = await axios({
-        url: `${apiUrl}/api/paypal/clientId`,
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
+    try {
+        const response = await axios({
+            url: `${apiUrl}/api/paypal/clientId`,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        if(response.statusText !== 'OK'){
+            throw new Error(response.data.message);
         }
-    });
-    if(response.statusText !== 'OK'){
-        throw new Error(response.data.message);
+        return response.data.clientId;
+    } catch (error) {
+        return {error: (error.response ? error.response.data.message : error.message)};
     }
-    return response.data.clientId;
 }
 
 export const payOrder = async (orderId, paymentResult) => {

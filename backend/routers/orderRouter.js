@@ -45,7 +45,7 @@ orderRouter.put('/:id/pay', isAuth, expressAsyncHandler( async (req, res) => {
     const order = Order.findById(req.params.id);
     if(order){
         order.isPaid = true;
-        order.paidAt = Data.now();
+        order.paidAt = Date.now();
         order.payment.paymentResult = {
             payerID: req.body.payerID,
             paymentID: req.body.paymentID,
@@ -62,7 +62,7 @@ orderRouter.put('/:id/deliver', isAuth, expressAsyncHandler( async (req, res) =>
     const order = Order.findById(req.params.id);
     if(order){
         order.isDelivered = true;
-        order.deliveredAt = Data.now();
+        order.deliveredAt = Date.now();
         const updatedOrder = await order.save(); 
         res.send({ message: 'Order Delivered!', order: updatedOrder });
     }else {

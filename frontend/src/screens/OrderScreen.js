@@ -11,6 +11,10 @@ const addPaypalSdk = async (totalPrice) => {
         script.src = 'https://www.paypalobjects.com/api/checkout.js';
         script.async = true;
         script.onload = () => handlePayment(clientId, totalPrice);
+        script.onerror = () => {
+            hideLoading();
+            showMessage('Failed to load PayPal SDK. Please try again later.');
+        };
         document.body.appendChild(script);
     }else {
         handlePayment(clientId, totalPrice);
@@ -33,24 +37,26 @@ const handlePayment = (clientId, totalPrice) => {
             color: 'gold',
             shape: 'pill',
         },
+
         commit: true,
         payment(data, actions){
             return actions.payment.create({
-                transactions: [{
-                    amount: {
-                        total: totalPrice,
-                        currency: 'USD',
-                    }
-                }]
-            })
+                transactions: [
+                    {
+                        amount: {
+                            total: totalPrice,
+                            currency: 'USD',
+                        },
+                    }],
+            });
         },
         onAuthorize(data, actions){
-            return actions.payment.execute().then(async () => {
+            return actions.payment.execute().then(async (details) => {
                 showLoading();
                 await payOrder(parseRequestUrl().id, {
                     orderID: data.orderID,
                     payerID: data.payerID,
-                    paymentID: data.paymentID,
+                    paymentID: details.id,
                 });
                 hideLoading();
                 showMessage('Payment was successfully!', () => {
