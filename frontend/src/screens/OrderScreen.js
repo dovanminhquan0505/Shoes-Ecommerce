@@ -1,4 +1,4 @@
-import { getOrder, getPaypalClientId, payOrder } from "../api";
+import { deliverOrder, getOrder, getPaypalClientId, payOrder } from "../api";
 import { getUserInfo } from "../localStorage";
 import { hideLoading, parseRequestUrl, rerender, showLoading, showMessage } from "../utils";
 
