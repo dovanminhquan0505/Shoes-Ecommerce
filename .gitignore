@@ -10,3 +10,7 @@ uploads/*.png
 
 #Ignore frontend variables files
 frontend/main.js
+
+
+#Ignore backend variables files
+dist/
