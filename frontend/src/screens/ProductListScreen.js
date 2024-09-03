@@ -1,5 +1,6 @@
 import { createProduct, getProducts } from "../api";
 import DashboardMenu from "../components/DashboardMenu";
+import { showLoading, hideLoading, rerender } from "../utils"
 
 const ProductListScreen = {
     after_render: () => {
@@ -12,6 +13,17 @@ const ProductListScreen = {
             editButton.onclick = () => {
                 document.location.hash = `/product/${editButton.id}/edit`;
             };
+        });
+        const deleteButtons = document.getElementsByClassName('delete-button');
+        Array.from(deleteButtons).forEach(deleteButton => {
+            deleteButton.onclick = async () => {
+                if(confirm('Are you sure want to delete this product?')){
+                    showLoading();
+                    await deleteProduct(deleteButton.id);
+                    hideLoading();
+                    rerender(ProductListScreen);
+                }
+            }
         })
     },
     render: async () => {
