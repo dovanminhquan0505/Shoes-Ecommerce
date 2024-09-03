@@ -31,10 +31,6 @@ app.get('/api/paypal/clientId', (req, res) => {
     res.send({clientId: config.PAYPAL_CLIENT_ID});
 });
 
-app.get("/api/products", (req, res) => {
-    res.send(data.products);
-});
-
 app.use((err, req, res, next) => {
     //Check if the error object has a name property and if this property has a value of "ValidationError".
     const status = err.name && err.name === "ValidationError" ? 400 : 500;
