@@ -7,3 +7,6 @@ uploads/*.png
 
 #Ignore environment variables
 .env
+
+#Ignore frontend variables files
+frontend/main.js
