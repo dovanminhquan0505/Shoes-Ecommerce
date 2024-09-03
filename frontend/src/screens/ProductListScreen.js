@@ -1,4 +1,4 @@
-import { createProduct, getProducts } from "../api";
+import { createProduct, deleteProduct, getProducts } from "../api";
 import DashboardMenu from "../components/DashboardMenu";
 import { showLoading, hideLoading, rerender, showMessage } from "../utils"
 
