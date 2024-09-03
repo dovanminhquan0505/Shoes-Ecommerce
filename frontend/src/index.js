@@ -3,6 +3,7 @@ import CartScreen from "./screens/CartScreen.js";
 import DashboardScreen from "./screens/DashboardScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import homeScreen from "./screens/HomeScreen.js";
+import OrderListScreen from "./screens/OrderListScreen copy.js";
 import OrderScreen from "./screens/OrderScreen.js";
 import PaymentScreen from "./screens/PaymentScreen.js";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
@@ -30,6 +31,7 @@ const routes = { //define the action when we click into each products page
     '/placeorder': PlaceOrderScreen,
     '/dashboard' : DashboardScreen,
     '/productlist': ProductListScreen,
+    '/orderlist': OrderListScreen,
 }
 
 const router = async () => {
