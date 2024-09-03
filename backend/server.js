@@ -1,13 +1,13 @@
 //Change ES5 Form to ES6 Form: const express = require('express') => import express from 'express'
 import express from "express";
 import cors from "cors";
-import data from "./data.js";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import config from "./config.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
 import productRouter from "./routers/productRouter.js";
+import uploadRouter from "./routers/uploadRouter.js";
 
 //Create MongoDB Connection
 mongoose
@@ -24,6 +24,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/api/uploads', uploadRouter);
 app.use("/api/users", userRouter);
 app.use('/api/products', productRouter);
 app.use("/api/orders", orderRouter);
