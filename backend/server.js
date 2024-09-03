@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import path from 'path'
 import config from "./config.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
@@ -32,6 +33,16 @@ app.get('/api/paypal/clientId', (req, res) => {
     res.send({clientId: config.PAYPAL_CLIENT_ID});
 });
 
+//This code sets up an Express middleware to serve static files from the uploads directory, 
+//and these files are accessible via the /uploads route in your application.
+//It allows to store and access uploaded files or other static resources through a specific URL path.
+app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
+//This code is configuring your Express server to serve static assets from the frontend directory located one level up from the current script's directory. 
+//This is useful for serving the front-end part of a web application.
+app.use(express.static(path.join(__dirname, '/../frontend')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/../frontend/index.html'))
+})
 app.use((err, req, res, next) => {
     //Check if the error object has a name property and if this property has a value of "ValidationError".
     const status = err.name && err.name === "ValidationError" ? 400 : 500;
