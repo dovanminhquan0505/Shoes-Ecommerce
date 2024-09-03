@@ -1,3 +1,9 @@
+#Ignore node_mudules folder
 node_modules/
+
+#Ignore the uploads file
 uploads/*.jpg
 uploads/*.png
+
+#Ignore environment variables
+.env
