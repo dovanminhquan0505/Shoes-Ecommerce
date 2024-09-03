@@ -43,10 +43,11 @@ const OrderListScreen = {
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>NAME</th>
-                                    <th>PRICE</th>
-                                    <th>CATEGORY</th>
-                                    <th>BRAND</th>
+                                    <th>DATE</th>
+                                    <th>TOTAL</th>
+                                    <th>USER</th>
+                                    <th>PAID AT</th>
+                                    <th>DELIVERED AT</th>
                                     <th class="tr-action">ACTIONS</th>
                                 </tr>
                             </thead>
@@ -54,10 +55,11 @@ const OrderListScreen = {
                                 ${orders.map((order) => `
                                         <tr>
                                             <td>${order._id}</td>
-                                            <td>${order.name}</td>
-                                            <td>$${order.price}</td>
-                                            <td>${order.category}</td>
-                                            <td>${order.brand}</td>
+                                            <td>${order.createdAt}</td>
+                                            <td>$${order.totalPrice}</td>
+                                            <td>${order.user.name}</td>
+                                            <td>${order.paidAt || 'No'}</td>
+                                            <td>${order.deliveredAt || 'No'}</td>
                                             <td>
                                                 <button id="${order._id}" class="edit-button">Edit</button>
                                                 <button id="${order._id}" class="delete-button">Delete</button>
