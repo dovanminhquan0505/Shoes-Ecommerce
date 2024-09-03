@@ -35,17 +35,6 @@ app.get("/api/products", (req, res) => {
     res.send(data.products);
 });
 
-//Create backend API for /api/products/:id
-app.get('/api/products/:id', (req, res) => {
-    //get the _id from products when users click on
-    const product = data.products.find((x) => x._id === req.params.id)
-    if(product){
-        res.send(product); 
-    } else {
-        res.status(404).send("Product not found");
-    }
-})
-
 app.use((err, req, res, next) => {
     //Check if the error object has a name property and if this property has a value of "ValidationError".
     const status = err.name && err.name === "ValidationError" ? 400 : 500;

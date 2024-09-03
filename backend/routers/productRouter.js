@@ -5,6 +5,16 @@ import Product from "../models/productModel";
 
 const productRouter = express.Router();
 
+productRouter.get('/', expressAsyncHandler( async (req, res) => {
+    const products = await Product.find({});
+    res.send(products);
+}));
+
+productRouter.get('/:id', expressAsyncHandler( async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    res.send(product);
+}));
+
 productRouter.post('/', isAuth, isAdmin, expressAsyncHandler( async (req, res) => {
     const product = new Product({
         name: 'Sample product',
