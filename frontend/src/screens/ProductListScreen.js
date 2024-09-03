@@ -6,6 +6,12 @@ const ProductListScreen = {
         document.getElementById('create-product-button').addEventListener('click', async () => {
             const data = await createProduct();
             document.location.hash = `/product/${data.product._id}/edit`;
+        });
+        const editButtons = document.getElementsByClassName('edit-button');
+        Array.from(editButtons).forEach(editButton => {
+            editButton.onclick = () => {
+                document.location.hash = `/product/${editButton.id}/edit`;
+            };
         })
     },
     render: async () => {
