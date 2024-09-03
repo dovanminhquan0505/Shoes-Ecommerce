@@ -42,7 +42,7 @@ export const getProducts = async () => {
     }
 };
 
-export const createProduct = async (product) => {
+export const createProduct = async () => {
     try {
         const {token} = getUserInfo();
         const response = await axios({
@@ -54,6 +54,27 @@ export const createProduct = async (product) => {
             },
         })
         if(response.statusText !== 'Created'){
+            throw new Error(response.data.message);
+        }
+        return response.data;
+    } catch (error) {
+        return {error: (error.response ? error.response.data.message : error.message)};
+    }
+}
+
+export const updateProduct = async (product) => {
+    try {
+        const {token} = getUserInfo();
+        const response = await axios({
+            url: `${apiUrl}/api/products/${product._id}`,
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+            body: product,
+        })
+        if(response.statusText !== 'OK'){
             throw new Error(response.data.message);
         }
         return response.data;
