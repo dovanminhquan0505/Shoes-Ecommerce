@@ -72,7 +72,7 @@ export const updateProduct = async (product) => {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`,
             },
-            body: product,
+            data: product,
         })
         if(response.statusText !== 'OK'){
             throw new Error(response.data.message);

@@ -1,4 +1,4 @@
-import { getProduct } from "../api";
+import { getProduct, updateProduct } from "../api";
 import { hideLoading, parseRequestUrl, showLoading, showMessage } from "../utils";
 
 const ProductEditScreen = {
@@ -49,7 +49,7 @@ const ProductEditScreen = {
                             </li>
                             <li>
                                 <label for="image">Image (680 x 830)</label>
-                                <input type="file" name="image" id="image" value="${product.image}"/>
+                                <input type="text" name="image" id="image" value="${product.image}"/>
                             </li>
                             <li>
                                 <label for="brand">Brand</label>
