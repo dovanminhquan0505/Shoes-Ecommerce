@@ -4,6 +4,7 @@ import { hideLoading, parseRequestUrl, showLoading, showMessage } from "../utils
 const ProductEditScreen = {
     after_render: () => {
         const request = parseRequestUrl();
+        //Submit handler
         document.getElementById('edit-product-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             showLoading();
@@ -24,6 +25,21 @@ const ProductEditScreen = {
                 document.location.hash = '/productlist'
             }
         });
+        //Image handler
+        document.getElementById('image-file').addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            const formData = new FormData();
+            formData.append('image', file);
+            showLoading();
+            const data = await uploadProductImage(formData);
+            hideLoading();
+            if(data.error) {
+                showMessage(data.error);
+            } else {
+                showMessage('Image uploaded successfully!');
+                document.getElementById('image').value = data.image;
+            }
+        })
     },
     render: async () => {
         const request = parseRequestUrl();
@@ -50,6 +66,7 @@ const ProductEditScreen = {
                             <li>
                                 <label for="image">Image (680 x 830)</label>
                                 <input type="text" name="image" id="image" value="${product.image}"/>
+                                <input type="file" name="image-file" id="image-file"/>
                             </li>
                             <li>
                                 <label for="brand">Brand</label>
