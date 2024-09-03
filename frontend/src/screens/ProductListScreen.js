@@ -1,6 +1,6 @@
 import { createProduct, getProducts } from "../api";
 import DashboardMenu from "../components/DashboardMenu";
-import { showLoading, hideLoading, rerender } from "../utils"
+import { showLoading, hideLoading, rerender, showMessage } from "../utils"
 
 const ProductListScreen = {
     after_render: () => {
@@ -19,9 +19,13 @@ const ProductListScreen = {
             deleteButton.onclick = async () => {
                 if(confirm('Are you sure want to delete this product?')){
                     showLoading();
-                    await deleteProduct(deleteButton.id);
+                    const data = await deleteProduct(deleteButton.id);
+                    if(data.error){
+                        showMessage(data.error);
+                    }else {
+                        rerender(ProductListScreen);
+                    }
                     hideLoading();
-                    rerender(ProductListScreen);
                 }
             }
         })
