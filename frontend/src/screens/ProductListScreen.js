@@ -1,9 +1,12 @@
-import { getProducts } from "../api";
+import { createProduct, getProducts } from "../api";
 import DashboardMenu from "../components/DashboardMenu";
 
 const ProductListScreen = {
     after_render: () => {
-
+        document.getElementById('create-product-button').addEventListener('click', async () => {
+            const data = await createProduct();
+            document.location.hash = `/product/${data.product._id}/edit`;
+        })
     },
     render: async () => {
         const products = await getProducts  ();

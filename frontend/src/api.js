@@ -42,6 +42,26 @@ export const getProducts = async () => {
     }
 };
 
+export const createProduct = async (product) => {
+    try {
+        const {token} = getUserInfo();
+        const response = await axios({
+            url: `${apiUrl}/api/products`,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        if(response.statusText !== 'Created'){
+            throw new Error(response.data.message);
+        }
+        return response.data;
+    } catch (error) {
+        return {error: (error.response ? error.response.data.message : error.message)};
+    }
+}
+
 export const signin = async ({email, password}) => {
     try {
         const response = await axios({

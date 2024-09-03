@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import config from "./config.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
+import productRouter from "./routers/productRouter.js";
 
 //Create MongoDB Connection
 mongoose
@@ -24,6 +25,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/api/users", userRouter);
+app.use('/api/products', productRouter);
 app.use("/api/orders", orderRouter);
 app.get('/api/paypal/clientId', (req, res) => {
     res.send({clientId: config.PAYPAL_CLIENT_ID});
