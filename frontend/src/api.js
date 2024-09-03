@@ -81,7 +81,29 @@ export const updateProduct = async (product) => {
     } catch (error) {
         return {error: (error.response ? error.response.data.message : error.message)};
     }
-}
+};
+
+export const uploadProductImage = async (formData) => {
+    try {
+        const { token } = getUserInfo();
+        const response = await axios({
+            url: `${apiUrl}/api/uploads`,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                Authorization: `Bearer ${token}`,
+            },
+            data: formData,
+        });
+        if(response.statusText !== 'Created'){
+            throw new Error(response.data.message);
+        } else {
+            return response.data;
+        }
+    } catch (error) {
+        return {error: (error.response ? error.response.data.message : error.message)};
+    }
+};
 
 export const signin = async ({email, password}) => {
     try {
