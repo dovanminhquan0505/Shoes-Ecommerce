@@ -7,7 +7,7 @@ const orderRouter = express.Router();
 
 orderRouter.get('/', isAuth, isAdmin, expressAsyncHandler( async (req, res) => {
     //Return all orders
-    const orders = await Order.find({});
+    const orders = await Order.find({}).populate('user');
     res.send(orders);
 }))
 

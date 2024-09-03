@@ -360,6 +360,7 @@ td{
     padding: 1rem;
 }
 
+.order-list button,
 .product-list button{
     font-size: 1.3rem;
     padding: 0.5rem;
