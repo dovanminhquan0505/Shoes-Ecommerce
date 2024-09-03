@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --watch backend --exec babel-node backend/server.js",
-    "build": "del -rf && babel backend -d dist",
+    "build": "rmdir /s /q dist && babel backend -d dist",
     "serve": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
