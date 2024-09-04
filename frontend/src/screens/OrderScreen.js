@@ -83,7 +83,7 @@ const OrderScreen = {
     },
     render: async () => {
         const { isAdmin } = getUserInfo();
-        const request =parseRequestUrl();
+        const request = parseRequestUrl();
         const {
             _id,
             shipping,

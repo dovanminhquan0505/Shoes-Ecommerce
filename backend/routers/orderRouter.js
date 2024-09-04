@@ -46,27 +46,50 @@ orderRouter.put('/:id/pay', isAuth, expressAsyncHandler( async (req, res) => {
     if(order){
         order.isPaid = true;
         order.paidAt = Date.now();
+        order.payment = order.payment || {};
         order.payment.paymentResult = {
             payerID: req.body.payerID,
             paymentID: req.body.paymentID,
             orderID: req.body.orderID,
         }
-        const updatedOrder = await order.save(); 
-        res.send({ message: 'Order Paid!', order: updatedOrder });
+        const updatedOrder = await Order.findByIdAndUpdate(
+            req.params.id,
+            { 
+                isPaid: order.isPaid,
+                paidAt: order.paidAt,
+                payment: order.payment
+            },
+            { new: true, runValidators: true }
+        ); 
+        if (updatedOrder) {
+            res.send({ message: 'Order Paid!', order: updatedOrder });
+        } else {
+            res.status(500).send({ message: 'Error updating order' });
+        }
     }else {
         res.status(404).send({message: 'Order not found'});
     }
 }));
 
 orderRouter.put('/:id/deliver', isAuth, expressAsyncHandler( async (req, res) => {
-    const order = Order.findById(req.params.id);
-    if(order){
-        order.isDelivered = true;
-        order.deliveredAt = Date.now();
-        const updatedOrder = await order.save(); 
-        res.send({ message: 'Order Delivered!', order: updatedOrder });
-    }else {
-        res.status(404).send({message: 'Order not found'});
+    const order = await Order.findById(req.params.id);
+    if (order) {
+        const updatedOrder = await Order.findByIdAndUpdate(
+            req.params.id,
+            {
+                isDelivered: true,
+                deliveredAt: Date.now()
+            },
+            { new: true, runValidators: true }
+        );
+        
+        if (updatedOrder) {
+            res.send({ message: 'Order Delivered!', order: updatedOrder });
+        } else {
+            res.status(500).send({ message: 'Error updating order' });
+        }
+    } else {
+        res.status(404).send({ message: 'Order not found' });
     }
 }));
 
