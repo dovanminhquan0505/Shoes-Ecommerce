@@ -6,28 +6,32 @@ let summary = {};
 
 const DashboardScreen = {
     after_render: () => {
-        new Chartist.Line('ct-chart-line', 
-            {
+        document.addEventListener('DOMContentLoaded', function() {
+            new Chartist.Line('ct-chart-line', 
+              {
                 labels: [],
                 series: [],
-            },
-            {
+              },
+              {
                 showArea: true,
-            },
-        );
-        new Chartist.Pie('ct-chart-pie', 
-            {
+              }
+            );
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            new Chartist.Pie('ct-chart-pie', 
+              {
                 labels: [],
                 series: [],
-            },
-            {
+              },
+              {
                 donut: true,
                 donutWidth: 60,
                 startAngle: 270,
                 showLabel: true,
                 donutSolid: true,
-            } 
-        )
+              }
+            );
+        });
     },
     render: async () => {
         summary = await getSummary();
