@@ -54,7 +54,7 @@ orderRouter.get(
         ]);
         res.send({ 
             users, 
-            orders, 
+            orders: orders.length === 0 ? [{ numOrders: 0, totalSales: 0}] : orders, 
             dailyOrders, 
             productBrands 
         });
