@@ -6,7 +6,16 @@ import Product from "../models/productModel";
 const productRouter = express.Router();
 
 productRouter.get('/', expressAsyncHandler( async (req, res) => {
-    const products = await Product.find({});
+    const searchKeyword = req.query.searchKeyword
+    ? {
+        name: {
+            $regex: req.query.searchKeyword,
+            //It's not case sensitive
+            $options: 'i',
+            },
+        }
+    : {};
+    const products = await Product.find({ ...searchKeyword });
     res.send(products);
 }));
 
