@@ -10,7 +10,6 @@ const homeScreen = {
         if(products.error){
             return `<div class="fail">${products.error}</div>`;
         }
-
         return `
             <ul class="products">
                 ${products.map(product => `

@@ -4,6 +4,8 @@ node_modules/
 #Ignore the uploads file
 uploads/*.jpg
 uploads/*.png
+uploads/*.webp
+uploads/*.jpeg
 
 #Ignore environment variables
 .env

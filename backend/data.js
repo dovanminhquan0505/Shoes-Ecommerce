@@ -66,6 +66,6 @@ export default { //when using the common a style of importing and exporting cont
             rating: 3.9,
             numReviews: 38,
             countInStock: 10,
-        }
+        },
     ]
 }

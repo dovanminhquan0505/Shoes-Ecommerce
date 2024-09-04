@@ -7,6 +7,7 @@ const Header = {
         const { value } = parseRequestUrl();
         return `
             <div class="brand">
+            <button id="aside-open-button">&#9776;</button>
                 <a href="/#/">Shoes Haven</a>
             </div>
             <div class="search">
@@ -33,8 +34,12 @@ const Header = {
             e.preventDefault();
             const searchKeyword = document.getElementById('q').value;
             document.location.hash = `/?q=${searchKeyword}`;
-        })
-    }
+        });
+
+        document.getElementById('aside-open-button').addEventListener('click', async () => {
+            document.getElementById('aside-container').classList.add('open');
+        });
+    },
 };
 
 export default Header;

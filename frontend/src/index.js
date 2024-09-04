@@ -1,3 +1,4 @@
+import Aside from "./components/Aside.js";
 import Header from "./components/Header.js";
 import CartScreen from "./screens/CartScreen.js";
 import DashboardScreen from "./screens/DashboardScreen.js";
@@ -47,6 +48,11 @@ const router = async () => {
     const header = document.getElementById('header-container');
     header.innerHTML = await Header.render(); //render the header to views
     await Header.after_render(); //render the header to views
+
+    //render aside to views
+    const aside = document.getElementById('aside-container');
+    aside.innerHTML = await Aside.render(); //render the aside to views
+    await Aside.after_render(); //render the aside to views
 
     //render header to views
     const main = document.getElementById('main-container');
