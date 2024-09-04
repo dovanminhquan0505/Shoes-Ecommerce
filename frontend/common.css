@@ -1,48 +1,50 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-html{
+html {
     font-size: 62.5%; /* 16px(browser) * 62.5 = 10px = 1rem*/
 }
 
 body {
     height: 100vh;
-    font: 1.6rem Helvetica, Arial; 
+    font: 1.6rem Helvetica, Arial;
     margin: 0;
 }
 
-a{
+a {
     color: #000000;
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     color: #c27a2c;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
 input,
-button{
+button,
+select,
+textarea {
     font: 1.6rem helvetica, Arial;
     padding: 1rem;
     border: 0.1rem #808080 solid;
     border-radius: 0.5rem;
 }
 
-button:hover{
+button:hover {
     border: 0.1rem #303030 solid;
-    color: #ffffff
+    color: #ffffff;
 }
 
-button.primary{
+button.primary {
     background-color: #f0c040;
 }
 
-.overlay{
+.overlay {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -53,7 +55,7 @@ button.primary{
     background-color: rgba(16, 16, 16, 0.5);
 }
 
-.overlay.active{
+.overlay.active {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,44 +76,45 @@ button.primary{
     margin: 2rem;
 }
 
-.fw{ /*full width*/
+.fw {
+    /*full width*/
     width: 100%;
 }
 
-.register-font{
+.register-font {
     font-weight: bold;
 }
 
-.signin-font{
+.signin-font {
     font-weight: bold;
 }
 
-.success{
+.success {
     color: #40c040;
     font-weight: bold;
 }
 
-.fail{
+.fail {
     color: #c04040;
     font-weight: bold;
 }
 
-.grid-container{
+.grid-container {
     display: grid;
-    grid-template-areas: 
-        'header'
-        'main'
-        'footer';
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
     grid-template-columns: 1fr;
     grid-template-rows: 5rem 1fr 5rem;
     height: 100%;
 }
 
-.content{
+.content {
     padding: 1rem;
 }
 
-header{
+header {
     grid-area: header;
     background-color: #203040;
     color: #ffffff;
@@ -121,23 +124,23 @@ header{
     padding: 0.5rem;
 }
 
-header a{
+header a {
     color: #ffffff;
     text-decoration: none;
     padding-right: 1rem;
 }
 
-header a:hover{
+header a:hover {
     color: #f1c40f;
 }
 
-.brand a{
+.brand a {
     font-weight: bold;
     font-size: 3rem;
     padding-left: 1rem;
 }
 
-footer{
+footer {
     background-color: #203040;
     display: flex;
     justify-content: center;

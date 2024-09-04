@@ -1,6 +1,12 @@
 import { createReview, getProduct } from "../api.js";
 import Rating from "../components/Rating.js";
-import { hideLoading, parseRequestUrl, rerender, showLoading, showMessage } from "../utils";
+import {
+    hideLoading,
+    parseRequestUrl,
+    rerender,
+    showLoading,
+    showMessage,
+} from "../utils";
 import { getUserInfo } from "../localStorage";
 
 const ProductScreen = {
@@ -12,23 +18,23 @@ const ProductScreen = {
         });
 
         const reviewForm = document.getElementById("review-form");
-        if(reviewForm){
+        if (reviewForm) {
             reviewForm.addEventListener("submit", async (e) => {
                 e.preventDefault();
                 showLoading();
                 const data = await createReview(request.id, {
-                    comment: document.getElementById('comment').value,
-                    rating: document.getElementById('rating').value,
+                    comment: document.getElementById("comment").value,
+                    rating: document.getElementById("rating").value,
                 });
                 hideLoading();
-                if(data.error){
+                if (data.error) {
                     showMessage(data.error);
                 } else {
-                    showMessage('Review Added Successfully!', () => {
-                         rerender(ProductScreen);
-                    })
+                    showMessage("Review Added Successfully!", () => {
+                        rerender(ProductScreen);
+                    });
                 }
-            })
+            });
         }
     },
     render: async () => {
@@ -91,7 +97,7 @@ const ProductScreen = {
                         </ul>
                     </div>
                 </div>
-                <div>
+                <div class="content">
                     <h2>Reviews</h2>
                     ${
                         product.reviews.length === 0
@@ -120,11 +126,14 @@ const ProductScreen = {
                             )
                             .join("\n")}
                         <li>
-                            <h3>Write a customer reviews</h3>
+                            
                             ${
                                 userInfo.name
-                                    ? `<form id="review-form">
-                                            <ul class="form-container">
+                                    ? `
+                                    <div class="form-container">
+                                    <form id="review-form">
+                                            <ul class="form-items">
+                                            <li><h3>Write a customer reviews</h3></li>
                                                 <li>
                                                     <label for="rating">Rating</label>
                                                     <select required name="rating" id="rating">
@@ -144,7 +153,8 @@ const ProductScreen = {
                                                     <button type="submit" class="primary">Submit</button>
                                                 </li>
                                             </ul>
-                                        </form>`
+                                        </form>
+                                        </div>`
                                     : `<div>
                                             Please <a href="/#/signin">SignIn</a> to write a review.
                                         </div>`

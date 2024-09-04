@@ -531,3 +531,14 @@ ul.categories {
     color: #ffffff;
     cursor: pointer;
 }
+
+/* Review */
+.review{
+    list-style-type: none;
+    padding: 0;
+}
+
+.review li{
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
