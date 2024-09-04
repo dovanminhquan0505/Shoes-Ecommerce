@@ -28,7 +28,7 @@ const OrderListScreen = {
         })
     },
     render: async () => {
-        const orders = await getOrders  ();
+        const orders = await getOrders();
         return `
             <div class="dashboard">
                 ${DashboardMenu.render({selected:'orders'})}

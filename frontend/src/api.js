@@ -344,7 +344,7 @@ export const payOrder = async (orderId, paymentResult) => {
 
 export const deliverOrder = async (orderId) => {
     try {
-        const {token} = getUserInfo();
+        const { token } = getUserInfo();
         const response = await axios({
         url: `${apiUrl}/api/orders/${orderId}/deliver`,
         method: "PUT",

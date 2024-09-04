@@ -44,10 +44,10 @@ orderRouter.get(
                 },
             },
         ]);
-        const productBrands = await Product.aggregate([
+        const productCategories = await Product.aggregate([
             {
                 $group: {
-                    _id: '$brand',
+                    _id: '$category',
                     count: { $sum: 1 },
                 }
             }
@@ -56,7 +56,7 @@ orderRouter.get(
             users, 
             orders: orders.length === 0 ? [{ numOrders: 0, totalSales: 0}] : orders, 
             dailyOrders, 
-            productBrands 
+            productCategories 
         });
     })
 );
@@ -165,12 +165,7 @@ orderRouter.put(
                 },
                 { new: true, runValidators: true }
             );
-
-            if (updatedOrder) {
-                res.send({ message: "Order Delivered!", order: updatedOrder });
-            } else {
-                res.status(500).send({ message: "Error updating order" });
-            }
+            res.send({ message: "Order Delivered!", order: updatedOrder });
         } else {
             res.status(404).send({ message: "Order not found" });
         }

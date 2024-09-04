@@ -3,8 +3,8 @@ export default { //when using the common a style of importing and exporting cont
         {
             //create ID is suitable for MongoDB 
             _id: '111111111111111111111111',
-            name: 'Air Force 1 Low 07 LV8 Panda Shoes',
-            category: 'Shoes',
+            name: 'Air Force 1 Low 07 LV8 Panda Athletic Shoes',
+            category: 'Athletic',
             image: '/images/product-1.jpg',
             price: 39,
             brand: 'Nike',
@@ -15,7 +15,7 @@ export default { //when using the common a style of importing and exporting cont
         {
             _id: '222222222222222222222222',
             name: 'NY 90 Core White FZ2247 Shoes',
-            category: 'Shoes',
+            category: 'Sneakers',
             image: '/images/product-2.jpg',
             price: 85.9,
             brand: 'Adidas',
@@ -26,7 +26,7 @@ export default { //when using the common a style of importing and exporting cont
         {
             _id: '333333333333333333333333',
             name: 'Samba OG IE3675 Shoes',
-            category: 'Shoes',
+            category: 'Sneakers',
             image: '/images/product-3.jpg',
             price: 132.5,
             brand: 'Adidas',
@@ -37,7 +37,7 @@ export default { //when using the common a style of importing and exporting cont
         {
             _id: '444444444444444444444444',
             name: 'Converse Chuck Taylor All Star Lift Low Top Shoes',
-            category: 'Shoes',
+            category: 'Sneakers',
             image: '/images/product-4.webp',
             price: 61.6,
             brand: 'Converse',
@@ -48,7 +48,7 @@ export default { //when using the common a style of importing and exporting cont
         {
             _id: '555555555555555555555555',
             name: 'Sneaker Rhyton Logo Leather',
-            category: 'Shoes',
+            category: 'Sneakers',
             image: '/images/product-5.jpg',
             price: 65,
             brand: 'Gucci',
@@ -59,7 +59,7 @@ export default { //when using the common a style of importing and exporting cont
         {
             _id: '666666666666666666666666',
             name: 'Monk Strap Men\'s Dress Shoes',
-            category: 'Shoes',
+            category: 'Dress',
             image: '/images/product-6.jpeg',
             price: 47,
             brand: 'Monk Strap',
@@ -67,5 +67,49 @@ export default { //when using the common a style of importing and exporting cont
             numReviews: 38,
             countInStock: 10,
         },
+        {
+            _id: '777777777777777777777777',
+            name: 'Men\'s cap toe oxford shoes',
+            category: 'Oxford shoes',
+            image: '/images/product-7.jpeg',
+            price: 47,
+            brand: 'Crockett & Jones',
+            rating: 4.1,
+            numReviews: 38,
+            countInStock: 10,
+        },
+        {
+            _id: '888888888888888888888888',
+            name: 'World Wear Footwear Sports Shoes',
+            category: 'Sport',
+            image: '/images/product-8.jpeg',
+            price: 47,
+            brand: 'Amazon',
+            rating: 4.1,
+            numReviews: 38,
+            countInStock: 10,
+        },
+        {
+            _id: '999999999999999999999999',
+            name: 'Nike Air Zoom Pegasus 36',
+            category: 'Sneakers',
+            image: '/images/product-9.jpg',
+            price: 75,
+            brand: 'Nike',
+            rating: 4.3,
+            numReviews: 38,
+            countInStock: 10,
+        },
+        {
+            _id: '101010101010101010101010',
+            name: 'White Sports Shoes',
+            category: 'Sport',
+            image: '/images/product-10.jpg',
+            price: 61.6,
+            brand: 'Converse',
+            rating: 4.2,
+            numReviews: 89,
+            countInStock: 0,
+        }
     ]
 }

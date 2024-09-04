@@ -19,8 +19,8 @@ const DashboardScreen = {
           new PieChart(
             '.ct-chart-pie',
             {
-              labels: summary.productBrands.map((x) => x._id),
-              series: summary.productBrands.map((x) => x.count),
+              labels: summary.productCategories.map((x) => x._id),
+              series: summary.productCategories.map((x) => x.count),
             },
             {
               donut: true,
@@ -65,7 +65,7 @@ const DashboardScreen = {
                                 <div class="ct-perfect-fourth ct-chart-line ct-label"></div>
                             </div>
                             <div>
-                                <h2>Best Selling Brand</h2>
+                                <h2>Best Selling Categories</h2>
                                 <div class="ct-perfect-fourth ct-chart-pie ct-label"></div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@ import CartScreen from "./screens/CartScreen.js";
 import DashboardScreen from "./screens/DashboardScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import homeScreen from "./screens/HomeScreen.js";
-import OrderListScreen from "./screens/OrderListScreen copy.js";
+import OrderListScreen from "./screens/OrderListScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
 import PaymentScreen from "./screens/PaymentScreen.js";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
