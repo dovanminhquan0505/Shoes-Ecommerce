@@ -409,3 +409,13 @@ td{
 .summary-title.color3{
     background-color: #e0e0f0;
 }
+
+/* Dashboard Chart */
+.charts{
+    display: flex;
+    justify-content: space-between;
+}
+
+.charts > div{
+    flex: 1;
+}

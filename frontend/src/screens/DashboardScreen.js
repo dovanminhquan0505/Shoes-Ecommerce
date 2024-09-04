@@ -1,3 +1,4 @@
+import Chartist from 'chartist';
 import DashboardMenu from "../components/DashboardMenu";
 import { getSummary } from "../api.js"
 
@@ -5,7 +6,28 @@ let summary = {};
 
 const DashboardScreen = {
     after_render: () => {
-        
+        new Chartist.Line('ct-chart-line', 
+            {
+                labels: [],
+                series: [],
+            },
+            {
+                showArea: true,
+            },
+        );
+        new Chartist.Pie('ct-chart-pie', 
+            {
+                labels: [],
+                series: [],
+            },
+            {
+                donut: true,
+                donutWidth: 60,
+                startAngle: 270,
+                showLabel: true,
+                donutSolid: true,
+            } 
+        )
     },
     render: async () => {
         summary = await getSummary();
@@ -35,6 +57,16 @@ const DashboardScreen = {
                                 <div class="summary-body">${summary.orders[0].totalSales}$</div>
                             </li>
                         </ul>
+                        <div class="charts">
+                            <div>
+                                <h2>Sales</h2>
+                                <div class="ct-perfect-fourth ct-chart-line"></div>
+                            </div>
+                            <div>
+                                <h2>Best Selling brand</h2>
+                                <div class="ct-perfect-fourth ct-chart-pie"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
