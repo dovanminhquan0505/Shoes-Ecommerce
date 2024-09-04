@@ -419,3 +419,10 @@ td{
 .charts > div{
     flex: 1;
 }
+
+.ct-chart-line .ct-label,
+.ct-chart-pie .ct-label{
+    font-size: 1.2rem;
+    fill: #000000;
+    font-weight: bold;
+}

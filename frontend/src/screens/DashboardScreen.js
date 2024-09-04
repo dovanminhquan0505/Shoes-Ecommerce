@@ -62,11 +62,11 @@ const DashboardScreen = {
                         <div class="charts">
                             <div>
                                 <h2>Sales</h2>
-                                <div class="ct-perfect-fourth ct-chart-line"></div>
+                                <div class="ct-perfect-fourth ct-chart-line ct-label"></div>
                             </div>
                             <div>
                                 <h2>Best Selling Brand</h2>
-                                <div class="ct-perfect-fourth ct-chart-pie"></div>
+                                <div class="ct-perfect-fourth ct-chart-pie ct-label"></div>
                             </div>
                         </div>
                     </div>
