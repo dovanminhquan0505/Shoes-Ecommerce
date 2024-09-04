@@ -44,15 +44,15 @@ const ProfileScreen = {
                                 </li>
                                 <li>
                                     <label for="name">Name</label>
-                                    <input type="name" name="name" id="name" value = "${name}"/>
+                                    <input type="name" name="name" id="name" value = "${name}">
                                 </li>
                                 <li>
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" value = ${email}/>
+                                    <input type="email" name="email" id="email" value = ${email}>
                                 </li>
                                 <li>
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="password"/>
+                                    <input type="password" name="password" id="password">
                                 </li>
                                 <li>
                                     <button type="submit" class="primary">Update</button>

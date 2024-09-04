@@ -72,7 +72,7 @@ productRouter.delete('/:id', isAuth, isAdmin, expressAsyncHandler( async (req, r
     }
 }));
 
-productRouter.post('/:id', isAuth, expressAsyncHandler( async (req, res) => {
+productRouter.post('/:id/reviews', isAuth, expressAsyncHandler( async (req, res) => {
     const product = await Product.findById(req.params.id);
     if(product){
         const review = {
