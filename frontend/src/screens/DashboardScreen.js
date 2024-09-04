@@ -20,19 +20,19 @@ const DashboardScreen = {
                                 <div class="summary-title color1">
                                     <span><i class="fa fa-users"></i> Users</span>
                                 </div>
-                                <div class="summary-body">10</div>
+                                <div class="summary-body">${summary.users[0].numUsers}</div>
                             </li>
                             <li>
                                 <div class="summary-title color2">
                                     <span><i class="fa fa-users"></i> Orders</span>
                                 </div>
-                                <div class="summary-body">15</div>
+                                <div class="summary-body">${summary.orders[0].numOrders}</div>
                             </li>
                             <li>
                                 <div class="summary-title color3">
                                     <span><i class="fa fa-users"></i> Sales</span>
                                 </div>
-                                <div class="summary-body">150</div>
+                                <div class="summary-body">${summary.orders[0].totalSales}$</div>
                             </li>
                         </ul>
                     </div>

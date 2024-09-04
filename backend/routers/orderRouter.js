@@ -2,8 +2,31 @@ import express from "express";
 import { isAdmin, isAuth } from "../utils";
 import expressAsyncHandler from "express-async-handler";
 import Order from "../models/orderModel";
+import User from "../models/userModel";
 
 const orderRouter = express.Router();
+
+orderRouter.get('/summary', isAuth, isAdmin, expressAsyncHandler( async (req, res) => {
+    const orders = await Order.aggregate([
+        {
+            $group: {
+                _id: null, 
+                //calculate number of orders
+                numOrders:{$sum: 1},
+                totalSales:{$sum: '$totalPrice'}
+            },
+        },
+    ]);
+    const users = await User.aggregate([
+        {
+            $group: {
+                _id: null,
+                numUsers: {$sum: 1},
+            },
+        },
+    ]);
+    res.send({ users, orders });
+}))
 
 orderRouter.get('/', isAuth, isAdmin, expressAsyncHandler( async (req, res) => {
     //Return all orders
@@ -102,27 +125,5 @@ orderRouter.delete('/:id', isAuth, isAdmin, expressAsyncHandler( async (req, res
         res.status(404).send({ message: 'Order Not Found' });
     }
 }));
-
-orderRouter.get('/summary', isAuth, isAdmin, expressAsyncHandler( async (req, res) => {
-    const orders = await Order.aggregate([
-        {
-            $group: {
-                _id: null, 
-                //calculate number of orders
-                numOrders:{$sum: 1},
-                totalSales:{$sum: '$totalPrice'}
-            },
-        },
-    ]);
-    const users = await Order.aggregate([
-        {
-            $group: {
-                _id: null,
-                numUsers: {$sum: 1},
-            },
-        },
-    ]);
-    res.send({ users, orders });
-}))
 
 export default orderRouter;
