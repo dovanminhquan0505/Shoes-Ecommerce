@@ -1,4 +1,5 @@
 import DashboardMenu from "../components/DashboardMenu";
+import { getSummary } from "../api.js"
 
 let summary = {};
 
