@@ -1,4 +1,4 @@
-import { getProduct } from "../api.js";
+import { createReview, getProduct } from "../api.js";
 import Rating from "../components/Rating.js";
 import { hideLoading, parseRequestUrl, rerender, showLoading, showMessage } from "../utils";
 import { getUserInfo } from "../localStorage";
