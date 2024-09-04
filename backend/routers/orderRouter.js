@@ -101,6 +101,28 @@ orderRouter.delete('/:id', isAuth, isAdmin, expressAsyncHandler( async (req, res
     }else {
         res.status(404).send({ message: 'Order Not Found' });
     }
+}));
+
+orderRouter.get('/summary', isAuth, isAdmin, expressAsyncHandler( async (req, res) => {
+    const orders = await Order.aggregate([
+        {
+            $group: {
+                _id: null, 
+                //calculate number of orders
+                numOrders:{$sum: 1},
+                totalSales:{$sum: '$totalPrice'}
+            },
+        },
+    ]);
+    const users = await Order.aggregate([
+        {
+            $group: {
+                _id: null,
+                numUsers: {$sum: 1},
+            },
+        },
+    ]);
+    res.send({ users, orders });
 }))
 
 export default orderRouter;
