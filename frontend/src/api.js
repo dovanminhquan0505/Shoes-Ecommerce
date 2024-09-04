@@ -62,8 +62,25 @@ export const createProduct = async () => {
     } catch (error) {
         return {error: (error.response ? error.response.data.message : error.message)};
     }
-}
+};
 
+export const createReview = async (productId, review) => {
+    try {
+        const {token} = getUserInfo();
+        const response = await axios({
+            url: `${apiUrl}/api/products/${productId}/reviews`,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            data: review,
+        });
+        return response.data;
+    } catch (error) {
+        return {error: (error.response ? error.response.data.message : error.message)};
+    }
+}
 
 export const deleteProduct = async (productId) => {
     try {
