@@ -426,3 +426,37 @@ td{
     fill: #000000;
     font-weight: bold;
 }
+
+/* Searching */
+.search{
+    width: 40%;
+}
+
+form.search-form input[type='text']{
+    float: left;
+    width: 70%;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+form.search-form button{
+    float: left;
+    width: 10%;
+    background: #f0c040;
+    cursor: pointer;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+form.search-form button:hover{
+    opacity: 0.97;
+}
+
+/* Clear floats */
+form.search-form:after{
+    content: '';
+    clear: both;
+    display: table;
+}

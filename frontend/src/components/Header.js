@@ -1,11 +1,19 @@
 import { getUserInfo } from "../localStorage";
+import { parseRequestUrl } from "../utils";
 
 const Header = {
     render: () => {
         const {name, isAdmin} = getUserInfo();
+        const { value } = parseRequestUrl();
         return `
             <div class="brand">
                 <a href="/#/">Shoes Haven</a>
+            </div>
+            <div class="search">
+                <form class="search-form" id="search-form">
+                    <input type="text" name="q" id="q" value = "${value || ''}"/>
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
             </div>
             <div>
             ${name 
@@ -21,7 +29,11 @@ const Header = {
         `
     },
     after_render: () => {
-
+        document.getElementById('search-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const searchKeyword = document.getElementById('q').value;
+            document.location.hash = `/?q=${searchKeyword}`;
+        })
     }
 };
 
