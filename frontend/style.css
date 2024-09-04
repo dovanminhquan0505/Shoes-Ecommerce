@@ -502,6 +502,13 @@ ul.categories {
     list-style-type: none;
 }
 
+.categories > li > a{
+    display: flex;
+    padding: 1rem;
+    padding-left: 2rem;
+    justify-content: space-between;
+}
+
 .categories > li > a > span{
     font-size: 1.4rem;
     color: #808080;
