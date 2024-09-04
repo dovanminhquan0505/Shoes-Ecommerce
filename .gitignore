@@ -16,3 +16,4 @@ frontend/main.js
 
 #Ignore backend variables files
 dist/
+docs.txt
