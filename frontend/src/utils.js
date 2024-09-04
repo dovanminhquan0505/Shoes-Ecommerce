@@ -1,12 +1,22 @@
 import { getCartItems } from "./localStorage";
 
 export const parseRequestUrl = () => {
-    const url = document.location.hash.toLowerCase();
-    const request = url.split('/');
+    //Create Address for searching
+    const address = document.location.hash.slice(1).split('?')[0];
+    const queryString = 
+        document.location.hash.slice(1).split('?').length === 2
+        ? document.location.hash.slice(1).split('?')[1]
+        : '';
+
+    const url = address.toLowerCase() || '/';
+    const r = url.split('/'); //request url
+    const q = queryString.split('='); // query 
     return {
-        resource: request[1],
-        id: request[2],
-        verb: request[3],
+        resource: r[1],
+        id: r[2],
+        verb: r[3],
+        name: q[0],
+        value: q[1],
     }
 }
 
