@@ -1,4 +1,4 @@
-import Chartist from 'chartist';
+import {LineChart, PieChart} from 'chartist';
 import DashboardMenu from "../components/DashboardMenu";
 import { getSummary } from "../api.js"
 
@@ -6,32 +6,30 @@ let summary = {};
 
 const DashboardScreen = {
     after_render: () => {
-        document.addEventListener('DOMContentLoaded', function() {
-            new Chartist.Line('ct-chart-line', 
-              {
-                labels: [],
-                series: [],
-              },
-              {
-                showArea: true,
-              }
-            );
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            new Chartist.Pie('ct-chart-pie', 
-              {
-                labels: [],
-                series: [],
-              },
-              {
-                donut: true,
-                donutWidth: 60,
-                startAngle: 270,
-                showLabel: true,
-                donutSolid: true,
-              }
-            );
-        });
+        new LineChart(
+            '.ct-chart-line',
+            {
+              labels: summary.dailyOrders.map((x) => x._id),
+              series: [summary.dailyOrders.map((x) => x.sales)],
+            },
+            {
+              showArea: true,
+            }
+          );
+          new PieChart(
+            '.ct-chart-pie',
+            {
+              labels: summary.productBrands.map((x) => x._id),
+              series: summary.productBrands.map((x) => x.count),
+            },
+            {
+              donut: true,
+              donutWidth: 60,
+              startAngle: 270,
+              showLabel: true,
+              donutSolid: true,
+            }
+          );
     },
     render: async () => {
         summary = await getSummary();

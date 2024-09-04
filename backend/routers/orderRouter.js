@@ -35,8 +35,8 @@ orderRouter.get(
                 $group: {
                     _id: {
                         $dateToString: {
-                            format: "%Y-%m-%d",
-                            date: "$createdAt",
+                            format: '%Y-%m-%d',
+                            date: '$createdAt',
                         },
                     },
                     orders: { $sum: 1 },
@@ -52,7 +52,12 @@ orderRouter.get(
                 }
             }
         ]);
-        res.send({ users, orders, dailyOrders, productBrands });
+        res.send({ 
+            users, 
+            orders, 
+            dailyOrders, 
+            productBrands 
+        });
     })
 );
 
